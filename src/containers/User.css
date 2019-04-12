@@ -1,0 +1,36 @@
+.User {
+	display: flex;
+	align-items: flex-start;
+	padding: 3px 5px 10px 5px;
+}
+.User:hover {
+	background: rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+}
+
+.User__pic {
+	margin-top: 13px;
+	width: 50px;
+	border-radius: 50%;
+}
+.User__details {
+	display: none;
+}
+
+@media (min-width: 576px) {
+	.User__details {
+		display: block;
+		padding: 0 0 0 1rem;
+	}
+	.User__details-name {
+		margin: 0;
+		color: rgba(255, 255, 255, 0.8);
+		font-size: 1rem;
+	}
+	.User__details-status {
+		margin: 0;
+		padding: 0;
+		text-align: left;
+		font-size: 0.9rem;
+	}
+}
