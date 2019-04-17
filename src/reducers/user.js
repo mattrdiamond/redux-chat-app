@@ -1,7 +1,7 @@
-import { generateUser } from '../static-data';
+import { generateUser } from "../static-data";
 
 function user(state = generateUser(), action) {
-	return state;
+  return state;
 }
 
 export default user;

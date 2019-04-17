@@ -1,17 +1,17 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:400,700");
 #root {
-	height: 100vh;
+  height: 100vh;
 }
 
 body {
-	margin: 0;
-	padding: 0;
-	font-family: "Nunito Sans", sans-serif;
-	font-weight: 400;
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 400;
 }
 
 .App {
-	height: 100%;
-	display: flex;
-	color: rgba(189, 189, 192, 1);
+  height: 100%;
+  display: flex;
+  color: rgba(189, 189, 192, 1);
 }
