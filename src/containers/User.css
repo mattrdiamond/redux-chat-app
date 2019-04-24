@@ -4,9 +4,13 @@
   padding: 3px 5px 10px 5px;
 }
 
-div.User:hover {
+div.User:not(.active):hover {
   background: rgba(0, 0, 0, 0.2);
   cursor: pointer;
+}
+
+div.User.active {
+  background: #333336;
 }
 
 .User__pic {
