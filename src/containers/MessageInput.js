@@ -1,19 +1,18 @@
 import React from "react";
-import store from "../store";
 import { setTypingValue, sendMessage } from "../actions";
 import "./MessageInput.css";
+import { connect } from "react-redux";
 
-const MessageInput = ({ value }) => {
-  const handleChange = e => {
-    store.dispatch(setTypingValue(e.target.value));
-  };
-
-  const state = store.getState();
-
+const MessageInput = ({
+  value,
+  sendMessage,
+  handleChange,
+  typing,
+  activeUserId
+}) => {
   const handleSubmit = e => {
     e.preventDefault();
-    const { typing, activeUserId } = state;
-    store.dispatch(sendMessage(typing, activeUserId));
+    sendMessage(typing, activeUserId);
   };
 
   return (
@@ -28,4 +27,26 @@ const MessageInput = ({ value }) => {
   );
 };
 
-export default MessageInput;
+const mapStateToProps = state => {
+  const { typing, activeUserId } = state;
+  return {
+    typing,
+    activeUserId
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    handleChange: e => {
+      dispatch(setTypingValue(e.target.value));
+    },
+    sendMessage: (typing, activeUserId) => {
+      dispatch(sendMessage(typing, activeUserId));
+    }
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MessageInput);

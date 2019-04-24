@@ -1,11 +1,10 @@
 import React from "react";
 import Sidebar from "../components/Sidebar";
 import Main from "../components/Main";
-import store from "../store";
 import "./App.css";
+import { connect } from "react-redux";
 
-const App = () => {
-  const { user, contacts, activeUserId } = store.getState();
+const App = ({ user, contacts, activeUserId }) => {
   return (
     <div className="App">
       <Sidebar contacts={Object.values(contacts)} />
@@ -14,4 +13,13 @@ const App = () => {
   );
 };
 
-export default App;
+const mapStateToProps = state => {
+  const { user, contacts, activeUserId } = state;
+  return {
+    user,
+    contacts,
+    activeUserId
+  };
+};
+
+export default connect(mapStateToProps)(App);

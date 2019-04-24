@@ -1,15 +1,13 @@
 import React from "react";
-import store from "../store";
 import Header from "../components/Header";
 import Chats from "../components/Chats";
 import MessageInput from "./MessageInput";
 import "./ChatWindow.css";
+import { connect } from "react-redux";
 
-const ChatWindow = ({ activeUserId }) => {
-  const state = store.getState();
-  const activeUser = state.contacts[activeUserId];
-  const activeMsgs = state.messages[activeUserId];
-  const { typing } = state;
+const ChatWindow = ({ activeUserId, contacts, messages, typing }) => {
+  const activeUser = contacts[activeUserId];
+  const activeMsgs = messages[activeUserId];
   return (
     <div className="ChatWindow">
       <Header user={activeUser} />
@@ -19,4 +17,13 @@ const ChatWindow = ({ activeUserId }) => {
   );
 };
 
-export default ChatWindow;
+const mapStateToProps = state => {
+  const { contacts, messages, typing } = state;
+  return {
+    contacts,
+    messages,
+    typing
+  };
+};
+
+export default connect(mapStateToProps)(ChatWindow);
