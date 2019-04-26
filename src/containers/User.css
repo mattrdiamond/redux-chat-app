@@ -1,20 +1,20 @@
 .User {
   display: flex;
   align-items: flex-start;
-  padding: 3px 5px 10px 5px;
+  padding: 1rem;
 }
 
-div.User:not(.active):hover {
+.User:not(.active):hover {
   background: rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
 
-div.User.active {
+.User.active {
   background: #333336;
 }
 
 .User__pic {
-  margin-top: 13px;
+  /* margin-top: 13px; */
   width: 50px;
   border-radius: 50%;
 }
@@ -33,6 +33,9 @@ div.User.active {
     margin: 0;
     color: rgba(255, 255, 255, 0.8);
     font-size: 1rem;
+    margin-bottom: 0.5rem;
+    text-align: left;
+    font-weight: 700;
   }
 
   .User__details-status {
