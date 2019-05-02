@@ -1,9 +1,17 @@
 .Header {
   text-align: left;
-  padding: 0 2rem;
+  padding: 1.5rem 1.5rem 1rem;
   border-bottom: 1px solid rgba(189, 189, 192, 0.2);
+  background: white;
+  box-shadow: 0 3px 4px 0 rgba(var(--black), 0.4);
 }
 
 .Header__name {
-  color: #fff;
+  color: var(--primary-dark);
+  margin: 0 0 0.5rem;
+  font-size: 1.6rem;
+}
+
+.Header__status {
+  margin: 0;
 }

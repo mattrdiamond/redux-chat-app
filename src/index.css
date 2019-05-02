@@ -1,6 +1,19 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:400,700");
+
+html,
+body,
 #root {
-  height: 100vh;
+  height: 100%;
+}
+
+:root {
+  --primary: #6d60b0;
+  --primary-dark: #3b2e7e;
+  --secondary: #3dbbe4;
+  --ui-01: #f4f8f8;
+  --ui-02: #ecf0f0;
+  /* --ui-03: #e2e3e4; */
+  --black: 64, 67, 75;
 }
 
 body {
@@ -12,6 +25,8 @@ body {
 
 .App {
   height: 100%;
-  display: flex;
-  color: rgba(189, 189, 192, 1);
+  color: rgba(var(--black), 0.8);
+  display: grid;
+  grid-template-columns: 340px auto;
+  grid-template-rows: 60px auto;
 }

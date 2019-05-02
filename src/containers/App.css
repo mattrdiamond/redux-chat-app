@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  height: 100%;
+  color: rgba(var(--black), 0.8);
+  display: grid;
+  grid-template-columns: 80px auto;
+  grid-template-rows: 60px auto;
+  transition: all 0.3s ease;
 }
 
 .App-logo {
@@ -20,14 +26,11 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: var(--secondary);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@media (min-width: 680px) {
+  .App {
+    grid-template-columns: 340px auto;
   }
 }
