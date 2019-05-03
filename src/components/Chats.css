@@ -13,7 +13,7 @@
   text-align: left;
   color: var(--black);
   padding: 1rem;
-  background: rgba(var(--black), 0.15);
+  background: var(--ui-03);
   max-width: 90%;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;

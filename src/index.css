@@ -1,32 +1,29 @@
-@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:400,700");
-
 html,
 body,
 #root {
   height: 100%;
+  font-size: 15px;
 }
 
 :root {
   --primary: #6d60b0;
-  --primary-dark: #3b2e7e;
+  --primary-light: #dbd7eb;
+  --primary-dark: #52416c;
   --secondary: #3dbbe4;
   --ui-01: #f4f8f8;
   --ui-02: #ecf0f0;
-  /* --ui-03: #e2e3e4; */
-  --black: 64, 67, 75;
+  --ui-03: #d6dada;
+  --black: 34, 36, 40;
+  --font-regular: "AvenirNew", sans-serif;
+}
+
+body,
+input {
+  font-family: var(--font-regular);
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: "Nunito Sans", sans-serif;
   font-weight: 400;
-}
-
-.App {
-  height: 100%;
-  color: rgba(var(--black), 0.8);
-  display: grid;
-  grid-template-columns: 340px auto;
-  grid-template-rows: 60px auto;
 }

@@ -2,15 +2,27 @@
   display: flex;
   align-items: flex-start;
   padding: 1rem;
+  cursor: pointer;
+  transition: all 0.1s ease;
 }
 
 .User:not(.active):hover {
-  background: rgba(0, 0, 0, 0.2);
-  cursor: pointer;
+  background: #e0e4e4;
 }
 
 .User.active {
-  background: #333336;
+  background: var(--primary-light);
+  box-shadow: inset 5px 0px 0px #52416c;
+}
+
+.User.active:hover {
+  background: rgba(109, 96, 176, 0.25);
+  background: #d5d1e4;
+}
+
+.User.active,
+.User.active .User__details-name {
+  color: var(--primary-dark);
 }
 
 .User__pic {
@@ -33,7 +45,7 @@
     margin: 0;
     color: rgba(var(--black), 0.7);
     font-size: 1rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
     text-align: left;
     font-weight: 700;
   }

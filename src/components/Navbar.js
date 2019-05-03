@@ -1,5 +1,6 @@
 import React from "react";
 import "./Navbar.css";
+import chatbox from "../images/chatbox.svg";
 
 const Navbar = ({ user }) => {
   const { profile_pic, name } = user;
@@ -8,7 +9,7 @@ const Navbar = ({ user }) => {
 
   return (
     <div className="Navbar">
-      <div className="logo" />
+        <img src={chatbox} alt="Chatbox logo" className="logo"/>
       <div className="user-pic">
         <span className="user-name">{firstName}</span>
         <img src={profile_pic} alt={name} className="profile-pic" />
