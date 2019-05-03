@@ -3,7 +3,7 @@ import "./Chats.css";
 
 const Chat = ({ message, activeUser, user }) => {
   const { text, is_user_msg } = message;
-  const isUserMsg = is_user_msg ? " is-user-msg" : "";
+  const isUserMsg = is_user_msg ? " is-user-msg" : " not-user-msg";
   const userPhoto = is_user_msg ? user.profile_pic : activeUser.profile_pic;
   const altText = is_user_msg ? user.name : activeUser.name;
   return (
