@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import "./Chats.css";
 
-const Chat = ({ message }) => {
+const Chat = ({ message, activeUser, user }) => {
   const { text, is_user_msg } = message;
+  const isUserMsg = is_user_msg ? " is-user-msg" : "";
+  const userPhoto = is_user_msg ? user.profile_pic : activeUser.profile_pic;
   return (
-    <span className={`Chat ${is_user_msg ? "is-user-msg" : ""}`}>{text}</span>
+    <div className={"Chat-container" + isUserMsg}>
+      <img src={userPhoto} alt="fpo" className={"Chat-img" + isUserMsg} />
+      <span className={"Chat" + isUserMsg}>{text}</span>
+    </div>
   );
 };
 
@@ -30,7 +35,12 @@ class Chats extends Component {
     return (
       <div className="Chats" ref={this.chatsRef}>
         {this.props.messages.map(message => (
-          <Chat message={message} key={message.number} />
+          <Chat
+            message={message}
+            activeUser={this.props.activeUser}
+            user={this.props.user}
+            key={message.number}
+          />
         ))}
       </div>
     );

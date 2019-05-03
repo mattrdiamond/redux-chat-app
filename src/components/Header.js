@@ -1,8 +1,8 @@
 import React from "react";
 import "./Header.css";
 
-const Header = ({ user }) => {
-  const { name, status, profile_pic } = user;
+const Header = ({ activeUser }) => {
+  const { name, status, profile_pic } = activeUser;
   return (
     <header className="Header">
       <img src={profile_pic} alt={name} className="Header__pic" />
