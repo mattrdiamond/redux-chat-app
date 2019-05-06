@@ -8,6 +8,7 @@ body,
 :root {
   --primary: #6366a5;
   --primary-light: #a3a3c5; /*active shadow*/
+  --primary-lighter: #bbbbe0;
   --primary-background: #d8d8ea; /*puple bubble*/
   --primary-dark: #474974; /*user name*/
   --ui-dark-01: #34354a; /*sidebar*/
