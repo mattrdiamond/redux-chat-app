@@ -4,7 +4,7 @@ import Icon from "./Icon";
 
 const Navbar = ({ user }) => {
   const { profile_pic, name } = user;
-  const removePrefix = name.replace(/\b(dr|mr|mrs|ms)[.\s]\s?/gi, "");
+  const removePrefix = name.replace(/\b(dr|mr|mrs|ms|miss)[.\s]\s?/gi, "");
   const firstName = removePrefix.split(" ")[0];
 
   return (

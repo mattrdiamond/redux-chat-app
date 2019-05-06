@@ -4,26 +4,27 @@
   padding: 1rem;
   cursor: pointer;
   transition: all 0.1s ease;
+  color: var(--ui-dark-04);
+}
+
+.User:last-of-type {
+  border-bottom: none;
 }
 
 .User:not(.active):hover {
-  background: #e0e4e4;
+  background: var(--ui-dark-02);
 }
 
 .User.active {
-  background: var(--primary-light);
-  box-shadow: inset 5px 0px 0px #52416c;
+  background: var(--ui-dark-03);
+  box-shadow: inset 5px 0px 0px var(--primary-light);
+  color: var(--ui-dark-05);
 }
 
-.User.active:hover {
+/* .User.active:hover {
   background: rgba(109, 96, 176, 0.25);
   background: #d5d1e4;
-}
-
-.User.active,
-.User.active .User__details-name {
-  color: var(--primary-dark);
-}
+} */
 
 .User__pic {
   /* margin-top: 13px; */
@@ -36,6 +37,10 @@
 }
 
 @media (min-width: 680px) {
+  .User {
+    border-bottom: 1px solid var(--ui-dark-03);
+  }
+
   .User__details {
     display: block;
     padding: 0 0 0 1rem;
@@ -43,11 +48,12 @@
 
   .User__details-name {
     margin: 0;
-    color: rgba(var(--black), 0.7);
+    /* color: rgba(var(--black), 0.7); */
     font-size: 1rem;
     margin-bottom: 0.4rem;
     text-align: left;
     font-weight: 700;
+    font-size: 0.95rem;
   }
 
   .User__details-status {

@@ -2,7 +2,7 @@ import React from "react";
 import { setTypingValue, sendMessage } from "../actions";
 import "./MessageInput.css";
 import sendButton from "../images/send.svg";
-import Icon from '../components/Icon';
+import Icon from "../components/Icon";
 import { connect } from "react-redux";
 
 const MessageInput = ({
@@ -18,14 +18,19 @@ const MessageInput = ({
   };
 
   return (
-    <form className="Message" onSubmit={handleSubmit}>
+    <form
+      className={"Message" + (typing.length ? " active" : "")}
+      onSubmit={handleSubmit}
+    >
       <input
         className="Message__input"
         onChange={handleChange}
         value={value}
         placeholder="Type your message..."
       />
-      <Icon icon="send" width="25px" height="25px"/>
+      <button className="send-button">
+        <Icon icon="send" width="25px" height="25px" />
+      </button>
     </form>
   );
 };
