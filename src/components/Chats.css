@@ -98,7 +98,7 @@
   z-index: 2;
 }
 
-@media (max-width: 679px) {
+@media (max-width: 749px) {
   .Chat-container {
     max-width: 75%;
   }

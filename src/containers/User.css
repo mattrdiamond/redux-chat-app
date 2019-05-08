@@ -36,7 +36,7 @@
   display: none;
 }
 
-@media (min-width: 680px) {
+@media (min-width: 750px) {
   .User {
     border-bottom: 1px solid var(--ui-dark-03);
   }
