@@ -4,6 +4,7 @@ import contacts from "./contacts";
 import activeUserId from "./activeUserId";
 import messages from "./messages";
 import typing from "./typing";
+import filterUsers from "./filterUsers";
 // this file will export the combination of all reducers
 
 export default combineReducers({
@@ -11,5 +12,6 @@ export default combineReducers({
   messages,
   contacts,
   activeUserId,
-  typing
+  typing,
+  filterUsers
 });

@@ -21,7 +21,8 @@ export const state = {
   messages: getMessages(10),
   typing: "",
   contacts,
-  activeUserId: null
+  activeUserId: null,
+  filterUsers: ""
 };
 
 /**
