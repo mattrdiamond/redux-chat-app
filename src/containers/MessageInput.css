@@ -2,7 +2,7 @@
   /* width: 92%; */
   /* margin: 1rem; */
   background: #fff;
-  padding: 0 1.5rem;
+  padding-left: 1.5rem;
   display: flex;
   border-top: 1px solid var(--ui-02);
 }
@@ -13,6 +13,24 @@
 }
 
 .Message.active .icon-send {
+  fill: var(--primary);
+}
+
+.send-button {
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  border-left: 1px solid var(--ui-02);
+}
+
+.send-button:hover .icon-send {
+  fill: var(--primary);
+}
+
+.send-button:focus {
+  outline: none;
+}
+
+.send-button:focus .icon-send {
   fill: var(--primary);
 }
 

@@ -12,7 +12,7 @@
 }
 
 .User:not(.active):hover {
-  background: var(--ui-dark-02);
+  background: var(--ui-dark-03);
 }
 
 .User.active {
@@ -21,10 +21,13 @@
   color: var(--ui-dark-05);
 }
 
-/* .User.active:hover {
-  background: rgba(109, 96, 176, 0.25);
-  background: #d5d1e4;
-} */
+.User:focus {
+  outline: none;
+  /* background: var(--ui-dark-02); */
+  /* border-top: 1px solid var(--ui-dark-04);
+  border-bottom: 1px solid var(--ui-dark-04); */
+  background: var(--ui-dark-03);
+}
 
 .User__pic {
   /* margin-top: 13px; */
@@ -39,6 +42,10 @@
 @media (min-width: 750px) {
   .User {
     border-bottom: 1px solid var(--ui-dark-03);
+  }
+
+  .User:first-of-type {
+    border-top: 1px solid var(--ui-dark-03);
   }
 
   .User__details {

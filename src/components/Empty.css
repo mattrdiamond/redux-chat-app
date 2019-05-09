@@ -28,16 +28,17 @@
   max-width: 375px;
   font-size: 1.2rem;
   line-height: 1.4;
-  color: rgba(var(--black), 0.6);
+  color: rgba(var(--black), 0.7);
   margin: 1rem 0;
   animation: fadeInUp 1.5s ease;
 }
 
 .Empty__status {
-  border-top: 1px solid rgba(var(--black), 0.2);
+  border-top: 1px solid rgba(var(--black), 0.15);
   padding-top: 0.75rem;
   margin: 0;
   display: inline-block;
+  color: rgba(var(--black), 0.7);
 }
 
 .Empty__img {
