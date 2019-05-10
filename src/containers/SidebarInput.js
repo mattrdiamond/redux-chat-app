@@ -9,7 +9,7 @@ const SidebarInput = ({ filterUsers, handleFilterUsers }) => {
       <input
         className="Sidebar__input"
         onChange={handleFilterUsers}
-        placeholder="Search contacts"
+        placeholder="Search contacts..."
         value={filterUsers}
       />
     </form>
