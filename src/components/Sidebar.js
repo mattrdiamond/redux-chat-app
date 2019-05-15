@@ -3,7 +3,7 @@ import User from "../containers/User";
 import "./Sidebar.css";
 import SidebarInput from "../containers/SidebarInput";
 
-const Sidebar = ({ contacts, filterUsers }) => {
+const Sidebar = ({ contacts, filterUsers, sidebarOpen }) => {
   const visibleUsers = contacts.filter(contact =>
     contact.name
       .toLowerCase()
@@ -17,7 +17,7 @@ const Sidebar = ({ contacts, filterUsers }) => {
       )
   );
   return (
-    <aside className="Sidebar">
+    <aside className={"Sidebar" + (sidebarOpen ? " open" : " closed")}>
       <SidebarInput />
       {visibleUsers.map(contact => (
         <User user={contact} key={contact.user_id} />

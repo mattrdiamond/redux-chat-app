@@ -3,7 +3,7 @@ import { setActiveUserId } from "../actions";
 import "./User.css";
 import { connect } from "react-redux";
 
-const User = ({ user, handleUserClick, activeUserId }) => {
+const User = ({ user, handleUserClick, activeUserId, sidebarOpen }) => {
   const { name, profile_pic, status, user_id } = user;
 
   const handleKeyPress = e => {
@@ -12,9 +12,13 @@ const User = ({ user, handleUserClick, activeUserId }) => {
     }
   };
 
+  const isSidebarOpen = sidebarOpen ? " visible" : " hidden";
+
   return (
     <div
-      className={"User" + (user_id === activeUserId ? " active" : "")}
+      className={
+        "User" + (user_id === activeUserId ? " active" : "") + isSidebarOpen
+      }
       onClick={handleUserClick.bind(null, user_id)}
       onKeyPress={handleKeyPress}
       tabIndex="0"
@@ -29,9 +33,10 @@ const User = ({ user, handleUserClick, activeUserId }) => {
 };
 
 const mapStateToProps = state => {
-  const { activeUserId } = state;
+  const { activeUserId, sidebarOpen } = state;
   return {
-    activeUserId: activeUserId
+    activeUserId: activeUserId,
+    sidebarOpen: sidebarOpen
   };
 };
 

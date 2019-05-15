@@ -5,6 +5,7 @@ import activeUserId from "./activeUserId";
 import messages from "./messages";
 import typing from "./typing";
 import filterUsers from "./filterUsers";
+import sidebarOpen from "./sidebarOpen";
 // this file will export the combination of all reducers
 
 export default combineReducers({
@@ -13,5 +14,6 @@ export default combineReducers({
   contacts,
   activeUserId,
   typing,
-  filterUsers
+  filterUsers,
+  sidebarOpen
 });

@@ -1,16 +1,25 @@
 .Sidebar {
-  width: 80px;
+  width: 340px;
   background-color: var(--ui-dark-01);
   /* height: 100%; */
   /* border-right: 1px solid rgba(189, 189, 192, 0.1); */
   transition: width 0.3s ease;
   overflow-y: scroll;
-  grid-column: 1/2;
-  grid-row: 2/3;
+  /* grid-column: 1/2;
+  grid-row: 2/3; */
+  height: calc(100% - 60px);
 }
 
-@media (min-width: 750px) {
+.Sidebar.open {
+  width: 340px;
+}
+
+/* .Sidebar.closed {
+  width: 80px;
+} */
+
+@media (max-width: 749px) {
   .Sidebar {
-    width: 340px;
+    width: 80px;
   }
 }

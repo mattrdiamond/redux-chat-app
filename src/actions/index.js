@@ -2,7 +2,8 @@ import {
   SET_ACTIVE_USER_ID,
   SET_TYPING_VALUE,
   SEND_MESSAGE,
-  SET_FILTER_VALUE
+  SET_FILTER_VALUE,
+  TOGGLE_SIDEBAR
 } from "../constants/action-types";
 
 export const setActiveUserId = id => ({
@@ -25,5 +26,10 @@ export const sendMessage = (message, userId) => ({
 
 export const setFilterValue = value => ({
   type: SET_FILTER_VALUE,
+  payload: value
+});
+
+export const toggleSidebar = value => ({
+  type: TOGGLE_SIDEBAR,
   payload: value
 });
