@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import "./SidebarInput.css";
 import Icon from "../components/Icon";
 import { setFilterValue, toggleSidebar } from "../actions";
-// import { runInThisContext } from "vm";
 
 class SidebarInput extends Component {
   constructor(props) {
@@ -14,7 +13,6 @@ class SidebarInput extends Component {
 
   componentDidMount() {
     this.handleResize();
-
     window.addEventListener("resize", this.handleResize);
   }
 
@@ -85,48 +83,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(SidebarInput);
-
-// const SidebarInput = ({ filterUsers, handleFilterUsers }) => {
-//   // const handleSubmit = e => {
-//   //   e.preventDefault();
-//   // };
-//   let sidebarOpen = true;
-
-//   const handleClick = e => {
-//     e.preventDefault();
-//     sidebarOpen = !sidebarOpen;
-//     console.log("sidebaropen", sidebarOpen);
-//   };
-
-//   return (
-//     <form className="input-container">
-//       <input
-//         className="Sidebar__input"
-//         onChange={handleFilterUsers}
-//         placeholder="Search contacts..."
-//         value={filterUsers}
-//       />
-//       <button className="Sidebar__button" onClick={handleClick}>
-//         <Icon icon="arrows" />
-//       </button>
-//     </form>
-//   );
-// };
-
-// const mapStateToProps = state => {
-//   const { filterUsers } = state;
-//   return { filterUsers };
-// };
-
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     handleFilterUsers: e => {
-//       dispatch(setFilterValue(e.target.value));
-//     }
-//   };
-// };
-
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(SidebarInput);

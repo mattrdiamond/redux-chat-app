@@ -9,7 +9,6 @@
 .Sidebar__input {
   border: none;
   flex: 1 1;
-  /* height: 2rem; */
   padding: 0.75rem 0.75rem 0.6rem 2.3rem;
   box-sizing: border-box;
   font-size: 0.9rem;
@@ -24,12 +23,7 @@
   box-shadow: 0 0 0 1px var(--primary-light);
 }
 
-/* .Sidebar__input.hidden {
-  display: none;
-} */
-
 .Sidebar__input::placeholder {
-  /* color: var(--ui-dark-04); */
   color: var(--ui-dark-04);
   color: #81829a;
   color: rgba(255, 255, 255, 0.35);
@@ -60,10 +54,6 @@
   transition: all 0.3s ease;
   padding: 8px 0;
 }
-
-/* .Sidebar__button .icon-arrows {
-  transition: transform 0.3s ease;
-} */
 
 .Sidebar__button:hover .icon-arrows {
   fill: var(--ui-dark-05);

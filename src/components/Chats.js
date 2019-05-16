@@ -6,6 +6,7 @@ const Chat = ({ message, activeUser, user }) => {
   const isUserMsg = is_user_msg ? " from-me" : " from-user";
   const userPhoto = is_user_msg ? user.profile_pic : activeUser.profile_pic;
   const altText = is_user_msg ? user.name : activeUser.name;
+
   return (
     <div className={"Chat-container" + isUserMsg}>
       <img src={userPhoto} alt={altText} className={"Chat-img" + isUserMsg} />
@@ -28,9 +29,9 @@ class Chats extends Component {
     this.scrollToBottom();
   }
 
-  scrollToBottom = () => {
+  scrollToBottom() {
     this.chatsRef.current.scrollTop = this.chatsRef.current.scrollHeight;
-  };
+  }
 
   render() {
     return (

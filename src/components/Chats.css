@@ -1,8 +1,5 @@
 .Chats {
   flex: 1 1 0;
-  /* display: flex;
-  flex-direction: column;
-  align-items: flex-start; */
   width: 100%;
   overflow-y: scroll;
   padding: 0 1rem;
@@ -35,7 +32,6 @@
 
 .Chat.from-me {
   background: var(--primary-background);
-  /* color: #fff; */
   color: rgba(var(--black), 0.9);
   border-radius: 10px 10px 13px 10px;
 }
