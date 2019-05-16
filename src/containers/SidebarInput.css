@@ -80,6 +80,10 @@
     display: block;
   }
 
+  .Sidebar__button.closed {
+    width: 100%;
+  }
+
   .Sidebar__input.hidden {
     display: none;
   }

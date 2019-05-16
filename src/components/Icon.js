@@ -1,15 +1,15 @@
-import React from 'react';
-import Icons from '../images/icons.svg';
+import React from "react";
+import Icons from "../images/icons.svg";
 
-const Icon = (props) => (
+const Icon = props => (
   <svg
     className={`icon icon-${props.icon}`}
     role="img"
-    height={props.height || '15px'}
-    width={props.width || '15px'}
-    aria-label={props.icon + ' icon'}
+    height={props.height || "15px"}
+    width={props.width || "15px"}
+    aria-label={props.icon + " icon"}
   >
-    <title>{props.icon + ' icon'}</title>
+    <title>{props.title || props.icon}</title>
     <use xlinkHref={`${Icons}#${props.icon}`} />
   </svg>
 );

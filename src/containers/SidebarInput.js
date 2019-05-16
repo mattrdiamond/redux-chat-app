@@ -35,8 +35,8 @@ class SidebarInput extends Component {
   }
 
   handleClick() {
-    // window.removeEventListener("resize", this.handleResize);
-    this.props.toggleSidebar(!this.props.sidebarOpen);
+    const { toggleSidebar, sidebarOpen } = this.props;
+    toggleSidebar(!sidebarOpen);
   }
 
   render() {
@@ -58,7 +58,7 @@ class SidebarInput extends Component {
           className={"Sidebar__button" + (sidebarOpen ? " open" : " closed")}
           onClick={handleClick}
         >
-          <Icon icon="arrows" />
+          <Icon icon="arrows" title={sidebarOpen ? "close" : "open"} />
         </button>
       </form>
     );

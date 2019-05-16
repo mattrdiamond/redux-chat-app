@@ -3,9 +3,17 @@ import Sidebar from "../components/Sidebar";
 import Main from "../components/Main";
 import Navbar from "../components/Navbar";
 import "./App.css";
+import { toggleSidebar } from "../actions";
 import { connect } from "react-redux";
 
-const App = ({ user, contacts, activeUserId, filterUsers, sidebarOpen }) => {
+const App = ({
+  user,
+  contacts,
+  activeUserId,
+  filterUsers,
+  sidebarOpen,
+  toggleSidebar
+}) => {
   return (
     <div className="App">
       <Navbar user={user} />
@@ -14,7 +22,12 @@ const App = ({ user, contacts, activeUserId, filterUsers, sidebarOpen }) => {
         filterUsers={filterUsers}
         sidebarOpen={sidebarOpen}
       />
-      <Main user={user} activeUserId={activeUserId} />
+      <Main
+        user={user}
+        activeUserId={activeUserId}
+        sidebarOpen={sidebarOpen}
+        toggleSidebar={toggleSidebar}
+      />
     </div>
   );
 };
@@ -30,4 +43,15 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => {
+  return {
+    toggleSidebar: value => {
+      dispatch(toggleSidebar(value));
+    }
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

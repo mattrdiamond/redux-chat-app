@@ -12,3 +12,27 @@
   justify-content: center;
   height: calc(100% - 60px);
 }
+
+@media (max-width: 749px) {
+  .Main {
+    width: calc(100% - 80px);
+    position: fixed;
+    top: 60px;
+    left: 80px;
+    transition: all 0.3s ease;
+  }
+
+  .Main.disabled {
+    left: 340px;
+    overflow: hidden;
+  }
+
+  .Main.disabled:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(52, 53, 74, 0.5);
+    z-index: 9;
+  }
+}

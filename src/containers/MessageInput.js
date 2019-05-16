@@ -29,7 +29,7 @@ const MessageInput = ({
         placeholder="Type your message..."
       />
       <button className="send-button">
-        <Icon icon="send" width="25px" height="25px" />
+        <Icon icon="send" width="25px" height="25px" title="send" />
       </button>
     </form>
   );
