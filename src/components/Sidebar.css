@@ -1,7 +1,7 @@
 .Sidebar {
   width: 340px;
   background-color: var(--ui-dark-01);
-  transition: width 0.3s ease;
+  transition: all 0.3s ease;
   overflow-y: scroll;
   height: calc(100% - 60px);
 }
@@ -13,5 +13,11 @@
 @media (max-width: 749px) {
   .Sidebar {
     width: 80px;
+  }
+}
+
+@media (max-width: 500px) {
+  .Sidebar {
+    width: 60px;
   }
 }

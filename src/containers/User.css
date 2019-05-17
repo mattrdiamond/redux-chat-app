@@ -34,6 +34,7 @@
 .User__pic {
   width: 50px;
   border-radius: 50%;
+  transition: width 0.3s ease;
 }
 
 .User__details-name {
@@ -69,5 +70,15 @@
 @media (max-width: 749px) {
   .User__details {
     display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .User {
+    padding: 0.75rem;
+  }
+
+  .User.hidden .User__pic {
+    width: 37.5px;
   }
 }

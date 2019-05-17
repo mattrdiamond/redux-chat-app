@@ -32,3 +32,10 @@
     z-index: 9;
   }
 }
+
+@media (max-width: 500px) {
+  .Main {
+    width: calc(100% - 60px);
+    left: 60px;
+  }
+}
