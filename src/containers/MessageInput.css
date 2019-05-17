@@ -2,11 +2,11 @@
   background: #fff;
   padding-left: 1.5rem;
   display: flex;
-  border-top: 1px solid var(--ui-02);
+  border-top: 1px solid var(--ui-01);
 }
 
 .Message .icon-send {
-  fill: var(--ui-04);
+  fill: rgba(var(--gray), 0.35);
   transition: fill 0.3s ease;
 }
 
@@ -17,7 +17,6 @@
 .send-button {
   padding: 1rem 1.5rem;
   cursor: pointer;
-  border-left: 1px solid var(--ui-02);
 }
 
 .send-button:hover .icon-send {
@@ -45,16 +44,17 @@
 }
 
 ::placeholder {
-  color: var(--ui-04);
+  color: rgba(var(--gray), 0.35);
+  color: rgba(86, 88, 103, 0.4);
   opacity: 1; /* Firefox */
 }
 
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: var(--ui-04);
+  color: rgba(var(--gray), 0.35);
 }
 
 ::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: var(--ui-04);
+  color: rgba(var(--gray), 0.35);
 }
