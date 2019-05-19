@@ -1,7 +1,7 @@
 import React from "react";
-import { setTypingValue, sendMessage } from "../actions";
+import { setTypingValue, setEmoji, sendMessage } from "../actions";
 import "./MessageInput.css";
-import sendButton from "../images/send.svg";
+import EmojiIcon from "./emoji-picker/EmojiIcon";
 import Icon from "../components/Icon";
 import { connect } from "react-redux";
 
@@ -10,11 +10,17 @@ const MessageInput = ({
   sendMessage,
   handleChange,
   typing,
+  setEmoji,
   activeUserId
 }) => {
   const handleSubmit = e => {
     e.preventDefault();
     sendMessage(typing, activeUserId);
+  };
+
+  const handleEmojiClick = emoji => {
+    console.log("emoji", emoji);
+    setEmoji(emoji);
   };
 
   return (
@@ -31,6 +37,7 @@ const MessageInput = ({
       <button className="send-button">
         <Icon icon="send" width="25px" height="25px" title="send" />
       </button>
+      <EmojiIcon handleEmojiClick={handleEmojiClick} />
     </form>
   );
 };
@@ -50,6 +57,9 @@ const mapDispatchToProps = dispatch => {
     },
     sendMessage: (typing, activeUserId) => {
       dispatch(sendMessage(typing, activeUserId));
+    },
+    setEmoji: emoji => {
+      dispatch(setEmoji(emoji));
     }
   };
 };

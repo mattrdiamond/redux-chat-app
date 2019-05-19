@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "emoji-js": "^3.4.1",
     "faker": "^4.1.0",
     "lodash": "^4.17.11",
     "react": "^16.8.1",

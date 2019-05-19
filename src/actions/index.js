@@ -1,6 +1,7 @@
 import {
   SET_ACTIVE_USER_ID,
   SET_TYPING_VALUE,
+  SET_EMOJI,
   SEND_MESSAGE,
   SET_FILTER_VALUE,
   TOGGLE_SIDEBAR
@@ -13,6 +14,11 @@ export const setActiveUserId = id => ({
 
 export const setTypingValue = value => ({
   type: SET_TYPING_VALUE,
+  payload: value
+});
+
+export const setEmoji = value => ({
+  type: SET_EMOJI,
   payload: value
 });
 
