@@ -9,7 +9,7 @@ export default function typing(state = "", action) {
     case SET_TYPING_VALUE:
       return action.payload;
     case SET_EMOJI:
-      return state + " " + action.payload;
+      return state + action.payload;
     case SEND_MESSAGE:
       return "";
     default:

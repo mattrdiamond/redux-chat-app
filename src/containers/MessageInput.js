@@ -11,7 +11,7 @@ const MessageInput = ({
   handleChange,
   typing,
   setEmoji,
-  activeUserId
+  activeUserId,
 }) => {
   const handleSubmit = e => {
     e.preventDefault();
@@ -26,6 +26,7 @@ const MessageInput = ({
   return (
     <form
       className={"Message" + (typing.length ? " active" : "")}
+      autoComplete="off"
       onSubmit={handleSubmit}
     >
       <input
