@@ -23,6 +23,10 @@ const MessageInput = ({
     setEmoji(emoji);
   };
 
+  const getCursorPosition = (e) => {
+    console.log('click', e.target.selectionStart);
+  }
+
   return (
     <form
       className={"Message" + (typing.length ? " active" : "")}
@@ -32,6 +36,8 @@ const MessageInput = ({
       <input
         className="Message__input"
         onChange={handleChange}
+        onClick={getCursorPosition}
+        onKeyUp={getCursorPosition}
         value={value}
         placeholder="Type your message..."
       />
