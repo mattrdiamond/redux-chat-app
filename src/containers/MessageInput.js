@@ -1,5 +1,10 @@
 import React from "react";
-import { setInputValue, setEmoji, sendMessage } from "../actions";
+import {
+  setInputValue,
+  setCursorPosition,
+  setEmoji,
+  sendMessage
+} from "../actions";
 import "./MessageInput.css";
 import EmojiIcon from "./emoji-picker/EmojiIcon";
 import Icon from "../components/Icon";
@@ -8,6 +13,7 @@ import { connect } from "react-redux";
 const MessageInput = ({
   sendMessage,
   setInputValue,
+  setCursorPosition,
   inputValue,
   setEmoji,
   activeUserId
@@ -38,6 +44,7 @@ const MessageInput = ({
     console.log("keycode", e.key);
     if (e.key.includes("Arrow")) {
       console.log("arrow", e.target.selectionStart);
+      setCursorPosition(e.target.selectionStart);
     }
   };
 
@@ -78,6 +85,9 @@ const mapDispatchToProps = dispatch => {
     // },
     setInputValue: (typingValue, cursorPosition) => {
       dispatch(setInputValue(typingValue, cursorPosition));
+    },
+    setCursorPosition: cursorPosition => {
+      dispatch(setCursorPosition(cursorPosition));
     },
     sendMessage: (typing, activeUserId) => {
       dispatch(sendMessage(typing, activeUserId));

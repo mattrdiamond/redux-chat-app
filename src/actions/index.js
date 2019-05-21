@@ -1,6 +1,7 @@
 import {
   SET_ACTIVE_USER_ID,
   SET_INPUT_VALUE,
+  SET_CURSOR_POSITION,
   SET_EMOJI,
   SEND_MESSAGE,
   SET_FILTER_VALUE,
@@ -20,7 +21,12 @@ export const setInputValue = (typingValue, cursorPosition) => ({
   }
 });
 
-export const setEmoji = (value) => ({
+export const setCursorPosition = cursorPosition => ({
+  type: SET_CURSOR_POSITION,
+  payload: cursorPosition
+});
+
+export const setEmoji = value => ({
   type: SET_EMOJI,
   payload: value
 });
