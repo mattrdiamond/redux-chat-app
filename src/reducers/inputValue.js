@@ -21,7 +21,7 @@ export default function inputValue(state = initialStateInput, action) {
     case SET_CURSOR_POSITION:
       return {
         ...state,
-        cursorPosition: cursorPosition
+        cursorPosition: action.payload
       };
     case SET_EMOJI:
       return state + action.payload;

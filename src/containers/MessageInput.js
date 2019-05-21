@@ -32,12 +32,11 @@ const MessageInput = ({
   };
 
   const handleEmojiClick = emoji => {
-    console.log("emoji", emoji);
-    setEmoji(emoji);
+    // setEmoji(emoji);
+    console.log("poss", cursorPosition);
   };
 
   const handleCursorChange = e => {
-    console.log("event type", e.type);
     switch (e.type) {
       case "keyup":
         if (e.key.includes("Arrow")) {
@@ -45,8 +44,9 @@ const MessageInput = ({
         }
         break;
       case "click":
-        if (typingValue.length > 0) {
-          setCursorPosition(e.target.selectionStart);
+        const clickedPosition = e.target.selectionStart;
+        if (typingValue.length > 0 && cursorPosition !== clickedPosition) {
+          setCursorPosition(clickedPosition);
         }
         break;
       default:
