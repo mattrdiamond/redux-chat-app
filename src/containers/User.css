@@ -24,6 +24,25 @@
   background: var(--ui-dark-03);
   box-shadow: inset 5px 0px 0px var(--primary-light);
   color: var(--ui-dark-05);
+  position: relative;
+}
+
+.User.active:before,
+.User.active:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: #34354a;
+  margin-left: -15px;
+}
+
+.User.active:before {
+  top: -1px;
+}
+
+.User.active:after {
+  bottom: -1px;
 }
 
 .User:focus {

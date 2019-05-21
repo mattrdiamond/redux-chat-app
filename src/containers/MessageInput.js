@@ -10,10 +10,9 @@ const MessageInput = ({
   setInputValue,
   inputValue,
   setEmoji,
-  activeUserId,
+  activeUserId
 }) => {
-  const {typingValue, cursorPosition} = inputValue;
-  
+  const { typingValue, cursorPosition } = inputValue;
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -23,17 +22,24 @@ const MessageInput = ({
   const handleChange = e => {
     const cursor = e.target.selectionStart;
     const typing = e.target.value;
-    setInputValue (typing, cursor);
-  }
+    setInputValue(typing, cursor);
+  };
 
   const handleEmojiClick = emoji => {
     console.log("emoji", emoji);
     setEmoji(emoji);
   };
 
-  const getCursorPosition = (e) => {
-    // console.log('click', e.target.selectionStart);
-  }
+  const getCursorPosition = e => {
+    console.log("click", e.target.selectionStart);
+  };
+
+  const handleKeyPress = e => {
+    console.log("keycode", e.key);
+    if (e.key.includes("Arrow")) {
+      console.log("arrow", e.target.selectionStart);
+    }
+  };
 
   return (
     <form
@@ -45,7 +51,7 @@ const MessageInput = ({
         className="Message__input"
         onChange={handleChange}
         onClick={getCursorPosition}
-        onKeyUp={getCursorPosition}
+        onKeyUp={handleKeyPress}
         value={typingValue}
         placeholder="Type your message..."
       />
