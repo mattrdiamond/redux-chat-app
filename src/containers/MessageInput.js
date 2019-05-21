@@ -36,15 +36,21 @@ const MessageInput = ({
     setEmoji(emoji);
   };
 
-  const getCursorPosition = e => {
-    console.log("click", e.target.selectionStart);
-  };
-
-  const handleKeyPress = e => {
-    console.log("keycode", e.key);
-    if (e.key.includes("Arrow")) {
-      console.log("arrow", e.target.selectionStart);
-      setCursorPosition(e.target.selectionStart);
+  const handleCursorChange = e => {
+    console.log("event type", e.type);
+    switch (e.type) {
+      case "keyup":
+        if (e.key.includes("Arrow")) {
+          setCursorPosition(e.target.selectionStart);
+        }
+        break;
+      case "click":
+        if (typingValue.length > 0) {
+          setCursorPosition(e.target.selectionStart);
+        }
+        break;
+      default:
+        break;
     }
   };
 
@@ -57,8 +63,8 @@ const MessageInput = ({
       <input
         className="Message__input"
         onChange={handleChange}
-        onClick={getCursorPosition}
-        onKeyUp={handleKeyPress}
+        onClick={handleCursorChange}
+        onKeyUp={handleCursorChange}
         value={typingValue}
         placeholder="Type your message..."
       />
