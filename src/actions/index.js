@@ -1,6 +1,6 @@
 import {
   SET_ACTIVE_USER_ID,
-  SET_TYPING_VALUE,
+  SET_INPUT_VALUE,
   SET_EMOJI,
   SEND_MESSAGE,
   SET_FILTER_VALUE,
@@ -12,12 +12,15 @@ export const setActiveUserId = id => ({
   payload: id
 });
 
-export const setTypingValue = value => ({
-  type: SET_TYPING_VALUE,
-  payload: value
+export const setInputValue = (typingValue, cursorPosition) => ({
+  type: SET_INPUT_VALUE,
+  payload: {
+    typingValue,
+    cursorPosition
+  }
 });
 
-export const setEmoji = value => ({
+export const setEmoji = (value) => ({
   type: SET_EMOJI,
   payload: value
 });

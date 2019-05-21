@@ -1,22 +1,30 @@
 import React from "react";
-import { setTypingValue, setEmoji, sendMessage } from "../actions";
+import { setInputValue, setEmoji, sendMessage } from "../actions";
 import "./MessageInput.css";
 import EmojiIcon from "./emoji-picker/EmojiIcon";
 import Icon from "../components/Icon";
 import { connect } from "react-redux";
 
 const MessageInput = ({
-  value,
   sendMessage,
-  handleChange,
-  typing,
+  setInputValue,
+  inputValue,
   setEmoji,
   activeUserId,
 }) => {
+  const {typingValue, cursorPosition} = inputValue;
+  
+
   const handleSubmit = e => {
     e.preventDefault();
-    sendMessage(typing, activeUserId);
+    sendMessage(typingValue, activeUserId);
   };
+
+  const handleChange = e => {
+    const cursor = e.target.selectionStart;
+    const typing = e.target.value;
+    setInputValue (typing, cursor);
+  }
 
   const handleEmojiClick = emoji => {
     console.log("emoji", emoji);
@@ -24,12 +32,12 @@ const MessageInput = ({
   };
 
   const getCursorPosition = (e) => {
-    console.log('click', e.target.selectionStart);
+    // console.log('click', e.target.selectionStart);
   }
 
   return (
     <form
-      className={"Message" + (typing.length ? " active" : "")}
+      className={"Message" + (typingValue ? " active" : "")}
       autoComplete="off"
       onSubmit={handleSubmit}
     >
@@ -38,7 +46,7 @@ const MessageInput = ({
         onChange={handleChange}
         onClick={getCursorPosition}
         onKeyUp={getCursorPosition}
-        value={value}
+        value={typingValue}
         placeholder="Type your message..."
       />
       <button className="send-button">
@@ -50,17 +58,20 @@ const MessageInput = ({
 };
 
 const mapStateToProps = state => {
-  const { typing, activeUserId } = state;
+  const { inputValue, activeUserId } = state;
   return {
-    typing,
+    inputValue,
     activeUserId
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    handleChange: e => {
-      dispatch(setTypingValue(e.target.value));
+    // handleChange: e => {
+    //   dispatch(handleChange(e.target.value));
+    // },
+    setInputValue: (typingValue, cursorPosition) => {
+      dispatch(setInputValue(typingValue, cursorPosition));
     },
     sendMessage: (typing, activeUserId) => {
       dispatch(sendMessage(typing, activeUserId));

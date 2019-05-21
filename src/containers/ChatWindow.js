@@ -5,7 +5,7 @@ import MessageInput from "./MessageInput";
 import "./ChatWindow.css";
 import { connect } from "react-redux";
 
-const ChatWindow = ({ activeUserId, contacts, messages, typing, user }) => {
+const ChatWindow = ({ activeUserId, contacts, messages, inputValue, user }) => {
   const activeUser = contacts[activeUserId];
   const activeMsgs = messages[activeUserId];
   return (
@@ -16,17 +16,17 @@ const ChatWindow = ({ activeUserId, contacts, messages, typing, user }) => {
         activeUser={activeUser}
         user={user}
       />
-      <MessageInput value={typing} />
+      <MessageInput inputValue={inputValue} />
     </div>
   );
 };
 
 const mapStateToProps = state => {
-  const { contacts, messages, typing, user } = state;
+  const { contacts, messages, inputValue, user } = state;
   return {
     contacts,
     messages,
-    typing,
+    inputValue,
     user
   };
 };
