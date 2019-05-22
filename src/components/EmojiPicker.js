@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import EmojiConvertor from "emoji-js";
 import "./EmojiPicker.css";
-import emojiData from "./emojiData";
+import emojiData from "../emojiData";
 
 class EmojiPicker extends Component {
   constructor() {

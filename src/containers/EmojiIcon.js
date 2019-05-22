@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Icon from '../../components/Icon';
-import EmojiPicker from "./EmojiPicker";
+import Icon from "../components/Icon";
+import EmojiPicker from "../components/EmojiPicker";
 
 class EmojiIcon extends Component {
   constructor() {
@@ -23,7 +23,6 @@ class EmojiIcon extends Component {
     });
   }
 
-
   render() {
     return (
       <div className="sc-user-input--picker-wrapper">
@@ -37,9 +36,14 @@ class EmojiIcon extends Component {
           onClick={this._openPicker.bind(this)}
           className="sc-user-input--emoji-icon-wrapper"
         >
-          <Icon icon="smile" height="25px" width="25px" className={`sc-user-input--emoji-icon ${
-            this.props.isActive ? "active" : ""
-          }`} />
+          <Icon
+            icon="smile"
+            height="25px"
+            width="25px"
+            className={`sc-user-input--emoji-icon ${
+              this.props.isActive ? "active" : ""
+            }`}
+          />
           {/*<svg
             className={`sc-user-input--emoji-icon ${
               this.props.isActive ? "active" : ""

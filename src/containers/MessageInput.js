@@ -6,7 +6,7 @@ import {
   sendMessage
 } from "../actions";
 import "./MessageInput.css";
-import EmojiIcon from "./emoji-picker/EmojiIcon";
+import EmojiIcon from "./EmojiIcon";
 import Icon from "../components/Icon";
 import { connect } from "react-redux";
 
