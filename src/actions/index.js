@@ -26,9 +26,9 @@ export const setCursorPosition = cursorPosition => ({
   payload: cursorPosition
 });
 
-export const setEmoji = value => ({
+export const setEmoji = emojiString => ({
   type: SET_EMOJI,
-  payload: value
+  payload: emojiString
 });
 
 export const sendMessage = (message, userId) => ({

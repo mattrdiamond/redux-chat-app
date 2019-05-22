@@ -8,6 +8,7 @@
   background: white;
   border-radius: 10px;
   outline: none;
+  z-index: 3;
 }
 
 .sc-emoji-picker:after {

@@ -32,8 +32,11 @@ const MessageInput = ({
   };
 
   const handleEmojiClick = emoji => {
-    // setEmoji(emoji);
-    console.log("poss", cursorPosition);
+    const emojiString =
+      typingValue.substring(0, cursorPosition) +
+      emoji +
+      typingValue.substring(cursorPosition);
+    setEmoji(emojiString);
   };
 
   const handleCursorChange = e => {
@@ -86,9 +89,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    // handleChange: e => {
-    //   dispatch(handleChange(e.target.value));
-    // },
     setInputValue: (typingValue, cursorPosition) => {
       dispatch(setInputValue(typingValue, cursorPosition));
     },
@@ -98,8 +98,8 @@ const mapDispatchToProps = dispatch => {
     sendMessage: (typing, activeUserId) => {
       dispatch(sendMessage(typing, activeUserId));
     },
-    setEmoji: emoji => {
-      dispatch(setEmoji(emoji));
+    setEmoji: emojiString => {
+      dispatch(setEmoji(emojiString));
     }
   };
 };
