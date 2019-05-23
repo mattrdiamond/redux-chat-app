@@ -6,6 +6,7 @@ import messages from "./messages";
 import inputValue from "./inputValue";
 import filterUsers from "./filterUsers";
 import sidebarOpen from "./sidebarOpen";
+import emojiOpen from "./emojiOpen";
 // this file will export the combination of all reducers
 
 export default combineReducers({
@@ -15,5 +16,6 @@ export default combineReducers({
   activeUserId,
   inputValue,
   filterUsers,
-  sidebarOpen
+  sidebarOpen,
+  emojiOpen
 });
