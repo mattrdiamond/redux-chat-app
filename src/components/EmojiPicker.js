@@ -24,7 +24,7 @@ class EmojiPicker extends Component {
     return (
       <div
         tabIndex="0"
-        onBlur={this.props.onBlur}
+        // onBlur={this.props.onBlur}
         className="sc-emoji-picker"
         ref={e => {
           this.domNode = e;

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Icon from "../components/Icon";
+import "./EmojiIcon.css";
 import EmojiPicker from "../components/EmojiPicker";
 
 class EmojiIcon extends Component {
@@ -25,25 +26,24 @@ class EmojiIcon extends Component {
 
   render() {
     return (
-      <div className="sc-user-input--picker-wrapper">
+      <div className="emoji-button-wrapper">
         {this.state.isActive && (
           <EmojiPicker
             onBlur={this._handlePickerBlur.bind(this)}
             handleEmojiClick={this.props.handleEmojiClick}
           />
         )}
-        <button
-          onClick={this._openPicker.bind(this)}
-          className="sc-user-input--emoji-icon-wrapper"
-        >
+        <button onClick={this._openPicker.bind(this)} className="emoji-button">
           <Icon
             icon="smile"
+            title="add emoji"
             height="25px"
             width="25px"
             className={`sc-user-input--emoji-icon ${
               this.props.isActive ? "active" : ""
             }`}
           />
+
           {/*<svg
             className={`sc-user-input--emoji-icon ${
               this.props.isActive ? "active" : ""

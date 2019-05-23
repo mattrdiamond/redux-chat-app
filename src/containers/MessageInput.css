@@ -15,8 +15,10 @@
 }
 
 .send-button {
-  padding: 1rem 1.5rem;
+  padding: 0 1.5rem 0 0.75rem;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .send-button:hover .icon-send {

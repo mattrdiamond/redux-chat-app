@@ -71,10 +71,10 @@ const MessageInput = ({
         value={typingValue}
         placeholder="Type your message..."
       />
+      <EmojiIcon handleEmojiClick={handleEmojiClick} />
       <button className="send-button">
         <Icon icon="send" width="25px" height="25px" title="send" />
       </button>
-      <EmojiIcon handleEmojiClick={handleEmojiClick} />
     </form>
   );
 };
