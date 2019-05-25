@@ -24,9 +24,10 @@ export default function inputValue(state = initialStateInput, action) {
         cursorPosition: action.payload
       };
     case SET_EMOJI:
+      const { emojiString, newCursorPosition } = action.payload;
       return {
-        ...state,
-        typingValue: action.payload
+        typingValue: emojiString,
+        cursorPosition: newCursorPosition
       };
     case SEND_MESSAGE:
       return {

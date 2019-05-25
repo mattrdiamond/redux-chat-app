@@ -5,7 +5,13 @@ import { toggleEmojiPicker } from "../actions";
 import EmojiPicker from "../components/EmojiPicker";
 import { connect } from "react-redux";
 
-const EmojiIcon = ({ emojiOpen, toggleEmojiPicker, handleEmojiClick }) => {
+const EmojiIcon = ({
+  emojiOpen,
+  toggleEmojiPicker,
+  handleEmojiClick,
+  inputField,
+  inputValue
+}) => {
   const _handlePickerBlur = () => {
     toggleEmojiPicker(false);
   };
@@ -13,6 +19,8 @@ const EmojiIcon = ({ emojiOpen, toggleEmojiPicker, handleEmojiClick }) => {
   const _openPicker = e => {
     e.preventDefault();
     toggleEmojiPicker(!emojiOpen);
+    // inputField.current.focus();
+    // console.log("input", inputField.current);
   };
 
   return (
@@ -21,6 +29,8 @@ const EmojiIcon = ({ emojiOpen, toggleEmojiPicker, handleEmojiClick }) => {
         <EmojiPicker
           onBlur={_handlePickerBlur.bind(this)}
           handleEmojiClick={handleEmojiClick}
+          inputValue={inputValue}
+          inputField={inputField}
         />
       )}
       <button onClick={_openPicker.bind(this)} className="emoji-button">

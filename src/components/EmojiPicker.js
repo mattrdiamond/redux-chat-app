@@ -21,6 +21,9 @@ class EmojiPicker extends Component {
   }
 
   render() {
+    const { cursorPosition } = this.props.inputValue;
+    const { handleEmojiClick, inputField } = this.props;
+
     return (
       <div
         tabIndex="0"
@@ -43,8 +46,14 @@ class EmojiPicker extends Component {
                       key={emoji}
                       className="sc-emoji-picker--emoji"
                       onClick={() => {
-                        this.props.handleEmojiClick(emoji);
+                        handleEmojiClick(emoji);
                         this.domNode.blur();
+                        // inputField.current.setSelectionRange(2, 3);
+
+                        // inputField.current.selectionStart = cursorPosition + 2;
+                        // inputField.current.selectionEnd = cursorPosition + 2;
+
+                        // inputField.current.focus();
                       }}
                     >
                       {emoji}
