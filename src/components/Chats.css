@@ -61,7 +61,7 @@
   -webkit-transform: translate(-30px, -2px);
 }
 
-.Chat.from-me:before {
+.Chat.from-me:not(.big-emoji):before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -73,7 +73,7 @@
   -webkit-transform: translate(0, -2px);
 }
 
-.Chat.from-me:after {
+.Chat.from-me:not(.big-emoji):after {
   content: "";
   position: absolute;
   z-index: 1;
@@ -92,6 +92,16 @@
   border-radius: 50%;
   flex-shrink: 0;
   z-index: 2;
+}
+
+.Chat.from-me.big-emoji {
+  font-size: 3rem;
+  background: none;
+  padding: 0;
+  line-height: 0.93;
+  bottom: -3px;
+  letter-spacing: 8px;
+  margin-right: 0;
 }
 
 @media (max-width: 749px) {

@@ -3,14 +3,23 @@ import "./Chats.css";
 
 const Chat = ({ message, activeUser, user }) => {
   const { text, is_user_msg } = message;
+  const containsEmoji = RegExp(
+    /^(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])*$/g
+  );
+  // When sending emoji only, make it large (up to 3)
+  const checkEmoji =
+    text.length <= 7 && containsEmoji.test(text) ? " big-emoji" : "";
   const isUserMsg = is_user_msg ? " from-me" : " from-user";
   const userPhoto = is_user_msg ? user.profile_pic : activeUser.profile_pic;
   const altText = is_user_msg ? user.name : activeUser.name;
+  const testes = () => {
+    console.log("testes");
+  };
 
   return (
     <div className={"Chat-container" + isUserMsg}>
       <img src={userPhoto} alt={altText} className={"Chat-img" + isUserMsg} />
-      <span className={"Chat" + isUserMsg}>{text}</span>
+      <span className={"Chat" + isUserMsg + checkEmoji}>{text}</span>
     </div>
   );
 };
