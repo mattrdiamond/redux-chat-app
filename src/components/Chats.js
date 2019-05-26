@@ -6,7 +6,7 @@ const Chat = ({ message, activeUser, user }) => {
   const containsEmoji = RegExp(
     /^(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])*$/g
   );
-  // When sending emoji only, make it large (up to 3)
+  // When sending emoji only, make emoji large (up to 3)
   const checkEmoji =
     text.length <= 7 && containsEmoji.test(text) ? " big-emoji" : "";
   const isUserMsg = is_user_msg ? " from-me" : " from-user";
