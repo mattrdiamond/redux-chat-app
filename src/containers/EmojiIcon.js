@@ -14,6 +14,7 @@ const EmojiIcon = ({
 }) => {
   const _handlePickerBlur = () => {
     toggleEmojiPicker(false);
+    console.log("blur");
   };
 
   const _openPicker = e => {
@@ -33,7 +34,11 @@ const EmojiIcon = ({
           inputField={inputField}
         />
       )}
-      <button onClick={_openPicker.bind(this)} className="emoji-button">
+      <button
+        onClick={_openPicker.bind(this)}
+        className="emoji-button"
+        type="button"
+      >
         <Icon
           icon="smile"
           title="add emoji"

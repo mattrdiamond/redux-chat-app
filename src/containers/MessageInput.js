@@ -80,11 +80,11 @@ class MessageInput extends Component {
       handleChange,
       handleEmojiClick,
       handleCursorChange,
-      props: { typingValue, inputValue, inputField }
+      props: { typingValue, inputValue, inputField, emojiOpen }
     } = this;
     return (
       <form
-        className={"Message" + (typingValue ? " active" : "")}
+        className={"Message" + (typingValue && !emojiOpen ? " active" : "")}
         autoComplete="off"
         onSubmit={handleSubmit}
       >
@@ -111,13 +111,14 @@ class MessageInput extends Component {
 }
 
 const mapStateToProps = state => {
-  const { inputValue, activeUserId } = state;
+  const { inputValue, activeUserId, emojiOpen } = state;
   const { typingValue, cursorPosition } = inputValue;
   return {
     inputValue,
     activeUserId,
     typingValue,
-    cursorPosition
+    cursorPosition,
+    emojiOpen
   };
 };
 
