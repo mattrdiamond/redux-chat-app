@@ -36,16 +36,10 @@ const EmojiIcon = ({
       )}
       <button
         onClick={_openPicker.bind(this)}
-        className="emoji-button"
+        className={"emoji-button" + (emojiOpen ? " active" : "")}
         type="button"
       >
-        <Icon
-          icon="smile"
-          title="add emoji"
-          height="25px"
-          width="25px"
-          className={`sc-user-input--emoji-icon ${emojiOpen ? "active" : ""}`}
-        />
+        <Icon icon="smile" title="add emoji" height="25px" width="25px" />
       </button>
     </div>
   );

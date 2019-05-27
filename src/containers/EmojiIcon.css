@@ -10,6 +10,10 @@
   height: 100%;
 }
 
+.emoji-button:hover .icon-smile {
+  fill: var(--primary);
+}
+
 .emoji-button:focus {
   outline: none;
 }
@@ -18,11 +22,11 @@
   fill: var(--primary);
 }
 
+.emoji-button.active .icon-smile {
+  fill: var(--primary);
+}
+
 .icon-smile {
   fill: rgba(var(--gray), 0.35);
   transition: fill 0.3s ease;
-}
-
-.icon-smile:hover {
-  fill: var(--primary);
 }

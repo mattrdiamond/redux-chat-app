@@ -14,10 +14,14 @@ import { connect } from "react-redux";
 class MessageInput extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      focusSendButton: false
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleCursorChange = this.handleCursorChange.bind(this);
     this.handleEmojiClick = this.handleEmojiClick.bind(this);
+    // this.handleBlur = this.handleBlur.bind(this);
     this.inputField = React.createRef();
   }
 
@@ -42,6 +46,12 @@ class MessageInput extends Component {
     const cursor = e.target.selectionStart;
     const typing = e.target.value;
     setInputValue(typing, cursor);
+
+    // *********************************
+    // if (typing && this.state.focusSendButton === false) {
+    //   this.setState({ focusSendButton: true });
+    // }
+    // *********************************
   }
 
   handleEmojiClick(emoji) {
@@ -74,19 +84,26 @@ class MessageInput extends Component {
     }
   }
 
+  // handleBlur() {
+  //   this.setState({ focusSendButton: false });
+  // }
+
   render() {
     const {
       handleSubmit,
       handleChange,
       handleEmojiClick,
       handleCursorChange,
+      handleBlur,
       props: { typingValue, inputValue, inputField, emojiOpen }
     } = this;
+
     return (
       <form
         className={"Message" + (typingValue && !emojiOpen ? " active" : "")}
         autoComplete="off"
         onSubmit={handleSubmit}
+        onBlur={handleBlur}
       >
         <input
           className="Message__input"
