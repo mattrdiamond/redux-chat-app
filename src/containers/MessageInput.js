@@ -21,17 +21,25 @@ class MessageInput extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleCursorChange = this.handleCursorChange.bind(this);
     this.handleEmojiClick = this.handleEmojiClick.bind(this);
-    // this.handleBlur = this.handleBlur.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
     this.inputField = React.createRef();
   }
 
   componentDidUpdate() {
     const { cursorPosition } = this.props;
-
-    // restore focus to cursor position after choosing emoji
-    if (document.activeElement !== this.inputField.current) {
-      this.inputField.current.setSelectionRange(cursorPosition, cursorPosition);
-      this.inputField.current.focus();
+    const typingValue = this.props.inputValue.typingValue;
+    console.log("typing", typingValue);
+    if (
+      typingValue.length > 0 &&
+      this.inputField.current === document.activeElement &&
+      this.state.focusSendButton === false
+    ) {
+      this.setState({ focusSendButton: true });
+    } else if (
+      this.inputField.current !== document.activeElement &&
+      this.state.focusSendButton === true
+    ) {
+      this.setState({ focusSendButton: false });
     }
   }
 
@@ -48,8 +56,15 @@ class MessageInput extends Component {
     setInputValue(typing, cursor);
 
     // *********************************
-    // if (typing && this.state.focusSendButton === false) {
+
+    // if (
+    //   typing.length > 0 &&
+    //   this.inputField.current === document.activeElement &&
+    //   this.state.focusSendButton === false
+    // ) {
     //   this.setState({ focusSendButton: true });
+    // } else if (typing.length === 0 && this.state.focusSendButton === true) {
+    //   this.setState({ focusSendButton: false });
     // }
     // *********************************
   }
@@ -84,9 +99,11 @@ class MessageInput extends Component {
     }
   }
 
-  // handleBlur() {
-  //   this.setState({ focusSendButton: false });
-  // }
+  // *********************************
+  handleBlur() {
+    this.setState({ focusSendButton: false });
+  }
+  // *********************************
 
   render() {
     const {
@@ -95,12 +112,13 @@ class MessageInput extends Component {
       handleEmojiClick,
       handleCursorChange,
       handleBlur,
-      props: { typingValue, inputValue, inputField, emojiOpen }
+      props: { typingValue, inputValue, inputField, emojiOpen, cursorPosition }
     } = this;
 
     return (
       <form
-        className={"Message" + (typingValue && !emojiOpen ? " active" : "")}
+        // className={"Message" + (typingValue && !emojiOpen ? " active" : "")}
+        className={"Message" + (this.state.focusSendButton ? " active" : "")}
         autoComplete="off"
         onSubmit={handleSubmit}
         onBlur={handleBlur}
@@ -116,8 +134,9 @@ class MessageInput extends Component {
         />
         <EmojiIcon
           handleEmojiClick={handleEmojiClick}
-          inputField={inputField}
+          inputField={this.inputField}
           inputValue={inputValue}
+          cursorPosition={cursorPosition}
         />
         <button className="send-button">
           <Icon icon="send" width="25px" height="25px" title="send" />
