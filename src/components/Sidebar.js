@@ -16,6 +16,7 @@ const Sidebar = ({ contacts, filterUsers, sidebarOpen }) => {
           .trim()
       )
   );
+
   return (
     <aside className={"Sidebar" + (sidebarOpen ? " open" : " closed")}>
       <SidebarInput />
