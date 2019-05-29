@@ -6,7 +6,8 @@ import {
   SEND_MESSAGE,
   SET_FILTER_VALUE,
   TOGGLE_SIDEBAR,
-  TOGGLE_EMOJI_PICKER
+  TOGGLE_EMOJI_PICKER,
+  ACTIVATE_SEND_BUTTON
 } from "../constants/action-types";
 
 export const setActiveUserId = id => ({
@@ -55,5 +56,10 @@ export const toggleSidebar = value => ({
 
 export const toggleEmojiPicker = value => ({
   type: TOGGLE_EMOJI_PICKER,
+  payload: value
+});
+
+export const activateSendButton = value => ({
+  type: ACTIVATE_SEND_BUTTON,
   payload: value
 });

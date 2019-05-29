@@ -2,12 +2,14 @@ import {
   SET_INPUT_VALUE,
   SET_CURSOR_POSITION,
   SET_EMOJI,
-  SEND_MESSAGE
+  SEND_MESSAGE,
+  ACTIVATE_SEND_BUTTON
 } from "../constants/action-types";
 
 const initialStateInput = {
   typingValue: "",
-  cursorPosition: 0
+  cursorPosition: 0,
+  sendButtonActive: false
 };
 
 export default function inputValue(state = initialStateInput, action) {
@@ -15,6 +17,7 @@ export default function inputValue(state = initialStateInput, action) {
     case SET_INPUT_VALUE:
       const { typingValue, cursorPosition } = action.payload;
       return {
+        ...state,
         typingValue: typingValue,
         cursorPosition: cursorPosition
       };
@@ -26,13 +29,20 @@ export default function inputValue(state = initialStateInput, action) {
     case SET_EMOJI:
       const { emojiString, newCursorPosition } = action.payload;
       return {
+        ...state,
         typingValue: emojiString,
         cursorPosition: newCursorPosition
       };
     case SEND_MESSAGE:
       return {
         typingValue: "",
-        cursorPosition: 0
+        cursorPosition: 0,
+        sendButtonActive: false
+      };
+    case ACTIVATE_SEND_BUTTON:
+      return {
+        ...state,
+        sendButtonActive: action.payload
       };
     default:
       return state;
