@@ -4,10 +4,23 @@ import Chats from "../components/Chats";
 import MessageInput from "./MessageInput";
 import "./ChatWindow.css";
 import { connect } from "react-redux";
+import { deleteMessage } from "../actions";
+import _ from "lodash";
 
-const ChatWindow = ({ activeUserId, contacts, messages, inputValue, user }) => {
+const ChatWindow = ({
+  activeUserId,
+  contacts,
+  messages,
+  inputValue,
+  user,
+  deleteMessage
+}) => {
   const activeUser = contacts[activeUserId];
   const activeMsgs = messages[activeUserId];
+  const handleDeleteMsg = deletedMsg => {
+    deleteMessage(activeMsgs, deletedMsg, activeUser);
+  };
+
   return (
     <div className="ChatWindow">
       <Header activeUser={activeUser} />
@@ -15,6 +28,7 @@ const ChatWindow = ({ activeUserId, contacts, messages, inputValue, user }) => {
         messages={Object.values(activeMsgs)}
         activeUser={activeUser}
         user={user}
+        handleDeleteMsg={handleDeleteMsg}
       />
       <MessageInput inputValue={inputValue} />
     </div>
@@ -31,4 +45,15 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(ChatWindow);
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteMessage: (activeMsgs, deletedMsg, activeUser) => {
+      dispatch(deleteMessage(activeMsgs, deletedMsg, activeUser));
+    }
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ChatWindow);

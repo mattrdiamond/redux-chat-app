@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Chats.css";
 
-const Chat = ({ message, activeUser, user }) => {
+const Chat = ({ message, activeUser, user, handleDeleteMsg }) => {
   const { text, is_user_msg } = message;
   const containsEmoji = RegExp(
     /^(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])*$/g
@@ -12,10 +12,22 @@ const Chat = ({ message, activeUser, user }) => {
   const userPhoto = is_user_msg ? user.profile_pic : activeUser.profile_pic;
   const altText = is_user_msg ? user.name : activeUser.name;
 
+  const handleClick = deletedMsg => {
+    handleDeleteMsg(deletedMsg);
+  };
+
   return (
     <div className={"Chat-container" + isUserMsg}>
       <img src={userPhoto} alt={altText} className={"Chat-img" + isUserMsg} />
       <span className={"Chat" + isUserMsg + checkEmoji}>{text}</span>
+      {is_user_msg && (
+        <button
+          className="Chat-close"
+          onClick={handleClick.bind(this, message)}
+        >
+          x
+        </button>
+      )}
     </div>
   );
 };
@@ -47,6 +59,7 @@ class Chats extends Component {
             activeUser={this.props.activeUser}
             user={this.props.user}
             key={message.number}
+            handleDeleteMsg={this.props.handleDeleteMsg}
           />
         ))}
       </div>

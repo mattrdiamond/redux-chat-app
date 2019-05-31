@@ -1,5 +1,5 @@
 import { getMessages } from "../static-data";
-import { SEND_MESSAGE } from "../constants/action-types";
+import { SEND_MESSAGE, DELETE_MESSAGE } from "../constants/action-types";
 import _ from "lodash";
 
 export default function messages(state = getMessages(10), action) {
@@ -9,7 +9,6 @@ export default function messages(state = getMessages(10), action) {
       const allUserMsgs = state[userId];
       // 1. convert object to array of keys, 2. retrieve last item, 3. add 1 to make it last key
       const number = +_.keys(allUserMsgs).pop() + 1;
-      console.log('number', number);
 
       return {
         ...state,
@@ -21,6 +20,14 @@ export default function messages(state = getMessages(10), action) {
             is_user_msg: true
           }
         }
+      };
+    case DELETE_MESSAGE:
+      const { activeMsgs, deletedMsg, activeUser } = action.payload;
+      const remainingMsgs = _.omit(activeMsgs, deletedMsg.number);
+      const { user_id } = activeUser;
+      return {
+        ...state,
+        [user_id]: remainingMsgs
       };
     default:
       return state;
