@@ -10,18 +10,7 @@ const MoreButton = ({ toggleMoreBtn, showMore, message, handleDeleteMsg }) => {
   };
 
   const handleMouseDown = message => {
-    // e.preventDefault();
     handleDeleteMsg(message);
-  };
-
-  const handleBlur = e => {
-    console.log("blur");
-    console.log("target", e.target);
-    if (e.target === ".more-btn") {
-      console.log("true target");
-    } else {
-      console.log("false target");
-    }
   };
 
   return (

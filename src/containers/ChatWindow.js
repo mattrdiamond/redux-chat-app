@@ -19,7 +19,6 @@ const ChatWindow = ({
   const activeMsgs = messages[activeUserId];
   const handleDeleteMsg = deletedMsg => {
     deleteMessage(activeMsgs, deletedMsg, activeUser);
-    console.log("DELETE!!!");
   };
 
   // const handleToggleMore = () => {

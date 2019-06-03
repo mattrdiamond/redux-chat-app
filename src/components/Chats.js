@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Chats.css";
 import Chat from "../containers/Chat";
 import MoreButton from "../containers/MoreButton";
+import { state } from "../static-data";
 
 // const Chat = ({ message, activeUser, user, handleDeleteMsg }) => {
 //   const { text, is_user_msg } = message;
@@ -47,8 +48,12 @@ class Chats extends Component {
     this.scrollToBottom();
   }
 
-  componentDidUpdate() {
-    this.scrollToBottom();
+  componentDidUpdate(prevState) {
+    console.log("prevState", prevState.messages.length);
+    console.log("state", this.props.messages.length);
+    if (prevState.messages.length < this.props.messages.length) {
+      this.scrollToBottom();
+    }
   }
 
   scrollToBottom() {
