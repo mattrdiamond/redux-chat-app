@@ -9,7 +9,8 @@ import {
   TOGGLE_EMOJI_PICKER,
   ACTIVATE_SEND_BUTTON,
   DELETE_MESSAGE,
-  TOGGLE_MORE
+  TOGGLE_MORE,
+  TOGGLE_EDIT_MODE
 } from "../constants/action-types";
 
 export const setActiveUserId = id => ({
@@ -66,19 +67,26 @@ export const activateSendButton = value => ({
   payload: value
 });
 
-export const deleteMessage = (activeMsgs, deletedMsg, activeUser) => ({
+export const deleteMessage = (message, userId) => ({
   type: DELETE_MESSAGE,
   payload: {
-    activeMsgs,
-    deletedMsg,
-    activeUser
+    message,
+    userId
   }
 });
 
-export const toggleMore = (activeUserId, activeMsg) => ({
+export const toggleMore = (userId, message) => ({
   type: TOGGLE_MORE,
   payload: {
-    activeUserId,
-    activeMsg
+    userId,
+    message
+  }
+});
+
+export const toggleEditMode = (userId, message) => ({
+  type: TOGGLE_EDIT_MODE,
+  payload: {
+    userId,
+    message
   }
 });

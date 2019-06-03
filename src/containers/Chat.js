@@ -2,7 +2,7 @@ import React from "react";
 import "./Chat.css";
 import MoreButton from "./MoreButton";
 import { connect } from "react-redux";
-import { toggleMore } from "../actions";
+import { toggleMore, toggleEditMode } from "../actions";
 
 const Chat = ({
   message,
@@ -11,7 +11,8 @@ const Chat = ({
   handleDeleteMsg,
   activeUserId,
   messages,
-  toggleMore
+  toggleMore,
+  toggleEditMode
 }) => {
   const { text, is_user_msg } = message;
   const containsEmoji = RegExp(
@@ -23,12 +24,16 @@ const Chat = ({
   const userPhoto = is_user_msg ? user.profile_pic : activeUser.profile_pic;
   const altText = is_user_msg ? user.name : activeUser.name;
 
-  const handleDelete = deletedMsg => {
-    handleDeleteMsg(deletedMsg);
+  const handleDelete = message => {
+    handleDeleteMsg(message);
   };
 
-  const toggleMoreBtn = activeMsg => {
-    toggleMore(activeUserId, activeMsg);
+  const toggleMoreBtn = message => {
+    toggleMore(activeUserId, message);
+  };
+
+  const handleEditMode = message => {
+    toggleEditMode(activeUserId, message);
   };
 
   return (
@@ -48,6 +53,7 @@ const Chat = ({
             showMore={message.showMore}
             message={message}
             handleDeleteMsg={handleDeleteMsg}
+            handleEditMode={handleEditMode}
           />
         </React.Fragment>
       )}
@@ -65,8 +71,11 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    toggleMore: (activeUserId, activeMsg) => {
-      dispatch(toggleMore(activeUserId, activeMsg));
+    toggleMore: (userId, message) => {
+      dispatch(toggleMore(userId, message));
+    },
+    toggleEditMode: (userId, message) => {
+      dispatch(toggleEditMode(userId, message));
     }
   };
 };

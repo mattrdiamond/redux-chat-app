@@ -17,8 +17,9 @@ const ChatWindow = ({
 }) => {
   const activeUser = contacts[activeUserId];
   const activeMsgs = messages[activeUserId];
-  const handleDeleteMsg = deletedMsg => {
-    deleteMessage(activeMsgs, deletedMsg, activeUser);
+  const handleDeleteMsg = message => {
+    // deleteMessage(activeMsgs, deletedMsg, activeUser);
+    deleteMessage(message, activeUserId);
   };
 
   // const handleToggleMore = () => {
@@ -52,8 +53,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    deleteMessage: (activeMsgs, deletedMsg, activeUser) => {
-      dispatch(deleteMessage(activeMsgs, deletedMsg, activeUser));
+    deleteMessage: (message, userId) => {
+      dispatch(deleteMessage(message, userId));
     }
   };
 };

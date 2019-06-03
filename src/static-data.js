@@ -34,7 +34,8 @@ export function generateMsg(number) {
     number,
     text: txtgen.sentence(),
     is_user_msg: faker.random.boolean(),
-    showMore: false
+    showMore: false,
+    editMode: false
   };
 }
 

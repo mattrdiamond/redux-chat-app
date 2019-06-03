@@ -4,7 +4,13 @@ import { connect } from "react-redux";
 import { toggleMore } from "../actions";
 
 // make this a component not a container
-const MoreButton = ({ toggleMoreBtn, showMore, message, handleDeleteMsg }) => {
+const MoreButton = ({
+  toggleMoreBtn,
+  showMore,
+  message,
+  handleDeleteMsg,
+  handleEditMode
+}) => {
   const handleToggle = e => {
     toggleMoreBtn(e);
   };
@@ -13,8 +19,8 @@ const MoreButton = ({ toggleMoreBtn, showMore, message, handleDeleteMsg }) => {
     handleDeleteMsg(message);
   };
 
-  const handleEdit = () => {
-    console.log("edit");
+  const handleEdit = message => {
+    handleEditMode(message);
   };
 
   return (
@@ -47,7 +53,7 @@ const MoreButton = ({ toggleMoreBtn, showMore, message, handleDeleteMsg }) => {
               type="button"
               className="more-menu-btn"
               role="menuitem"
-              onMouseDown={handleEdit}
+              onMouseDown={handleEdit.bind(this, message)}
             >
               1. Edit
             </button>

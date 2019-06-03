@@ -49,8 +49,6 @@ class Chats extends Component {
   }
 
   componentDidUpdate(prevState) {
-    console.log("prevState", prevState.messages.length);
-    console.log("state", this.props.messages.length);
     if (prevState.messages.length < this.props.messages.length) {
       this.scrollToBottom();
     }
