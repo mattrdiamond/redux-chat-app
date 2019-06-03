@@ -9,8 +9,12 @@ const MoreButton = ({ toggleMoreBtn, showMore, message, handleDeleteMsg }) => {
     toggleMoreBtn(e);
   };
 
-  const handleMouseDown = message => {
+  const handleDelete = message => {
     handleDeleteMsg(message);
+  };
+
+  const handleEdit = () => {
+    console.log("edit");
   };
 
   return (
@@ -39,7 +43,12 @@ const MoreButton = ({ toggleMoreBtn, showMore, message, handleDeleteMsg }) => {
           aria-hidden="true"
         >
           <li className="more-menu-item" role="presentation">
-            <button type="button" className="more-menu-btn" role="menuitem">
+            <button
+              type="button"
+              className="more-menu-btn"
+              role="menuitem"
+              onMouseDown={handleEdit}
+            >
               1. Edit
             </button>
           </li>
@@ -48,7 +57,7 @@ const MoreButton = ({ toggleMoreBtn, showMore, message, handleDeleteMsg }) => {
               type="button"
               className="more-menu-btn"
               role="menuitem"
-              onMouseDown={handleMouseDown.bind(this, message)}
+              onMouseDown={handleDelete.bind(this, message)}
             >
               2. Delete
             </button>

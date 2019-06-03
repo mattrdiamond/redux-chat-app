@@ -49,6 +49,7 @@ export default function messages(state = getMessages(10), action) {
           }
         }
       };
+
     default:
       return state;
   }
