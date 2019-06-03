@@ -1,12 +1,4 @@
-.Chats {
-  flex: 1 1 0;
-  width: 100%;
-  overflow-y: scroll;
-  padding: 0 1rem;
-  box-sizing: border-box;
-}
-
-/* .Chat-container {
+.Chat-container {
   max-width: 70%;
   display: flex;
   justify-content: flex-start;
@@ -112,4 +104,4 @@
   .Chat-img {
     display: none;
   }
-} */
+}

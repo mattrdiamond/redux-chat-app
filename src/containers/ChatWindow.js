@@ -19,7 +19,12 @@ const ChatWindow = ({
   const activeMsgs = messages[activeUserId];
   const handleDeleteMsg = deletedMsg => {
     deleteMessage(activeMsgs, deletedMsg, activeUser);
+    console.log("DELETE!!!");
   };
+
+  // const handleToggleMore = () => {
+  //   console.log("toggle!!!");
+  // };
 
   return (
     <div className="ChatWindow">
@@ -29,6 +34,7 @@ const ChatWindow = ({
         activeUser={activeUser}
         user={user}
         handleDeleteMsg={handleDeleteMsg}
+        // handleToggleMore={handleToggleMore}
       />
       <MessageInput inputValue={inputValue} />
     </div>

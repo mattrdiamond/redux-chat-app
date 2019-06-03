@@ -33,7 +33,8 @@ export function generateMsg(number) {
   return {
     number,
     text: txtgen.sentence(),
-    is_user_msg: faker.random.boolean()
+    is_user_msg: faker.random.boolean(),
+    showMore: false
   };
 }
 

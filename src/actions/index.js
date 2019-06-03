@@ -8,7 +8,8 @@ import {
   TOGGLE_SIDEBAR,
   TOGGLE_EMOJI_PICKER,
   ACTIVATE_SEND_BUTTON,
-  DELETE_MESSAGE
+  DELETE_MESSAGE,
+  TOGGLE_MORE
 } from "../constants/action-types";
 
 export const setActiveUserId = id => ({
@@ -71,5 +72,13 @@ export const deleteMessage = (activeMsgs, deletedMsg, activeUser) => ({
     activeMsgs,
     deletedMsg,
     activeUser
+  }
+});
+
+export const toggleMore = (activeUserId, activeMsg) => ({
+  type: TOGGLE_MORE,
+  payload: {
+    activeUserId,
+    activeMsg
   }
 });
