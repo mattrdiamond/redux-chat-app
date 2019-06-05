@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./Chat.css";
 import MoreButton from "./MoreButton";
 import { connect } from "react-redux";
-import { toggleMore, toggleEditMode } from "../actions";
+import { toggleMore, toggleEditMode, saveEdits } from "../actions";
 
 class Chat extends Component {
   constructor(props) {
@@ -10,6 +10,7 @@ class Chat extends Component {
     this.editChatRef = React.createRef();
     this.handleEditMode = this.handleEditMode.bind(this);
     this.focusContentEditable = this.focusContentEditable.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
   }
 
   componentDidUpdate(prevProps) {
@@ -27,10 +28,11 @@ class Chat extends Component {
     }, 0);
   };
 
-  // handleBlur(message) {
-  //   console.log("blur");
-  //   this.handleEditMode(message);
-  // }
+  handleBlur(message) {
+    const { activeUserId, saveEdits } = this.props;
+    const editedContent = this.editChatRef.current.textContent;
+    saveEdits(activeUserId, message, editedContent);
+  }
 
   toggleMoreBtn(message) {
     const { activeUserId, toggleMore } = this.props;
@@ -81,7 +83,8 @@ class Chat extends Component {
             ref={this.editChatRef}
             contentEditable="true"
             suppressContentEditableWarning={true}
-            onBlur={this.handleEditMode.bind(this, message)}
+            // onBlur={this.handleEditMode.bind(this, message)}
+            onBlur={this.handleBlur.bind(this, message)}
           >
             {text}
           </div>
@@ -119,6 +122,9 @@ const mapDispatchToProps = dispatch => {
     },
     toggleEditMode: (userId, message) => {
       dispatch(toggleEditMode(userId, message));
+    },
+    saveEdits: (userId, message, editedContent) => {
+      dispatch(saveEdits(userId, message, editedContent));
     }
   };
 };

@@ -10,7 +10,8 @@ import {
   ACTIVATE_SEND_BUTTON,
   DELETE_MESSAGE,
   TOGGLE_MORE,
-  TOGGLE_EDIT_MODE
+  TOGGLE_EDIT_MODE,
+  SAVE_EDITS
 } from "../constants/action-types";
 
 export const setActiveUserId = id => ({
@@ -88,5 +89,14 @@ export const toggleEditMode = (userId, message) => ({
   payload: {
     userId,
     message
+  }
+});
+
+export const saveEdits = (userId, message, editedContent) => ({
+  type: SAVE_EDITS,
+  payload: {
+    userId,
+    message,
+    editedContent
   }
 });

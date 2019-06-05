@@ -3,7 +3,8 @@ import {
   SEND_MESSAGE,
   DELETE_MESSAGE,
   TOGGLE_MORE,
-  TOGGLE_EDIT_MODE
+  TOGGLE_EDIT_MODE,
+  SAVE_EDITS
 } from "../constants/action-types";
 import _ from "lodash";
 
@@ -67,7 +68,22 @@ export default function messages(state = getMessages(10), action) {
         }
       };
     }
-
+    case SAVE_EDITS: {
+      const { userId, message, editedContent } = action.payload;
+      const { number } = message;
+      const allUserMsgs = state[userId];
+      return {
+        ...state,
+        [userId]: {
+          ...allUserMsgs,
+          [number]: {
+            ...message,
+            text: editedContent,
+            editMode: false
+          }
+        }
+      };
+    }
     default:
       return state;
   }
