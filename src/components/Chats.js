@@ -55,6 +55,7 @@ class Chats extends Component {
   }
 
   scrollToBottom() {
+    console.log("scroll");
     this.chatsRef.current.scrollTop = this.chatsRef.current.scrollHeight;
   }
 

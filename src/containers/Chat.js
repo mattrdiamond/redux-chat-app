@@ -79,14 +79,17 @@ class Chat extends Component {
         {editMode ? (
           // <input type="text" defaultValue={text} />
           <div
-            className={"Chat" + isUserMsg}
+            className="Chat from-me edit"
             ref={this.editChatRef}
             contentEditable="true"
             suppressContentEditableWarning={true}
-            // onBlur={this.handleEditMode.bind(this, message)}
             onBlur={this.handleBlur.bind(this, message)}
           >
             {text}
+            {/*<div className="edit-buttons">
+              <button className="cancel-button">Cancel</button>
+              <button className="save-button">Save</button>
+        </div>*/}
           </div>
         ) : (
           <span className={"Chat" + isUserMsg + this.checkEmoji(text)}>
