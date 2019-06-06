@@ -11,7 +11,8 @@ class Chat extends Component {
     this.editChatRef = React.createRef();
     this.handleEditMode = this.handleEditMode.bind(this);
     this.focusContentEditable = this.focusContentEditable.bind(this);
-    this.handleBlur = this.handleBlur.bind(this);
+    this.handleSaveEdits = this.handleSaveEdits.bind(this);
+    this.toggleMoreBtn = this.toggleMoreBtn.bind(this);
   }
 
   componentDidUpdate(prevProps) {
@@ -29,24 +30,19 @@ class Chat extends Component {
     }, 0);
   };
 
-  handleBlur(message) {
-    console.log("BLLLLUUUUUUURRRRRR chat");
-    const { activeUserId, saveEdits } = this.props;
+  handleSaveEdits() {
+    const { activeUserId, saveEdits, message } = this.props;
     const editedContent = this.editChatRef.current.textContent;
     saveEdits(activeUserId, message, editedContent);
   }
 
-  toggleMoreBtn(message) {
-    const { activeUserId, toggleMore } = this.props;
+  toggleMoreBtn() {
+    const { activeUserId, toggleMore, message } = this.props;
     toggleMore(activeUserId, message);
   }
 
   handleEditMode() {
-    // console.log("EDIT");
-    // e.preventDefault();
-    // const { message } = this.props;
     const { activeUserId, toggleEditMode, message } = this.props;
-    console.log("message", message);
     toggleEditMode(activeUserId, message);
   }
 
@@ -64,16 +60,9 @@ class Chat extends Component {
     const {
       toggleMoreBtn,
       handleEditMode,
-      handleBlur,
-      props: {
-        message,
-        activeUser,
-        activeUserId,
-        user,
-        handleDeleteMsg,
-        toggleMore,
-        toggleEditMode
-      }
+      handleSaveEdits,
+      checkEmoji,
+      props: { message, activeUser, user, handleDeleteMsg }
     } = this;
     const { text, is_user_msg, editMode } = message;
     const isUserMsg = is_user_msg ? " from-me" : " from-user";
@@ -86,7 +75,7 @@ class Chat extends Component {
         {editMode ? (
           <div
             className="editable-wrapper Chat from-me"
-            onBlur={this.handleBlur.bind(this, message)}
+            onBlur={handleSaveEdits}
           >
             <div
               className="Chat-editable"
@@ -97,26 +86,20 @@ class Chat extends Component {
               {text}
             </div>
             <div className="Chat-buttons">
-              <button
-                className="Chat-button"
-                type="button"
-                onMouseDown={this.handleEditMode}
-              >
+              <button className="Chat-button" onMouseDown={handleEditMode}>
                 <Icon icon="cancel" />
               </button>
-              <button className="Chat-button">
+              <button className="Chat-button" onMouseDown={handleSaveEdits}>
                 <Icon icon="save" />
               </button>
             </div>
           </div>
         ) : (
-          <span className={"Chat" + isUserMsg + this.checkEmoji(text)}>
-            {text}
-          </span>
+          <span className={"Chat" + isUserMsg + checkEmoji(text)}>{text}</span>
         )}
         {is_user_msg && (
           <MoreButton
-            toggleMoreBtn={toggleMoreBtn.bind(this, message)}
+            toggleMoreBtn={toggleMoreBtn}
             showMore={message.showMore}
             message={message}
             handleDeleteMsg={handleDeleteMsg}
@@ -154,81 +137,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Chat);
-
-// ----------------------------------------------------
-
-// const Chat = ({
-//   message,
-//   activeUser,
-//   user,
-//   handleDeleteMsg,
-//   activeUserId,
-//   messages,
-//   toggleMore,
-//   toggleEditMode
-// }) => {
-//   const { text, is_user_msg, editMode } = message;
-//   const containsEmoji = RegExp(
-//     /^(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])*$/g
-//   );
-//   const checkEmoji =
-//     text.length <= 7 && containsEmoji.test(text) ? " big-emoji" : "";
-//   const isUserMsg = is_user_msg ? " from-me" : " from-user";
-//   const userPhoto = is_user_msg ? user.profile_pic : activeUser.profile_pic;
-//   const altText = is_user_msg ? user.name : activeUser.name;
-
-//   const toggleMoreBtn = message => {
-//     toggleMore(activeUserId, message);
-//   };
-
-//   const handleEditMode = message => {
-//     toggleEditMode(activeUserId, message);
-//   };
-
-//   return (
-//     <div className={"Chat-container" + isUserMsg}>
-//       <img src={userPhoto} alt={altText} className={"Chat-img" + isUserMsg} />
-//       {editMode ? (
-//         // <input type="text" defaultValue={text} />
-//         <div className={"Chat" + isUserMsg} contentEditable="true">
-//           {text}
-//         </div>
-//       ) : (
-//         <span className={"Chat" + isUserMsg + checkEmoji}>{text}</span>
-//       )}
-//       {is_user_msg && (
-//         <MoreButton
-//           toggleMoreBtn={toggleMoreBtn.bind(this, message)}
-//           showMore={message.showMore}
-//           message={message}
-//           handleDeleteMsg={handleDeleteMsg}
-//           handleEditMode={handleEditMode}
-//         />
-//       )}
-//     </div>
-//   );
-// };
-
-// const mapStateToProps = state => {
-//   const { messages, activeUserId } = state;
-//   return {
-//     messages,
-//     activeUserId
-//   };
-// };
-
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     toggleMore: (userId, message) => {
-//       dispatch(toggleMore(userId, message));
-//     },
-//     toggleEditMode: (userId, message) => {
-//       dispatch(toggleEditMode(userId, message));
-//     }
-//   };
-// };
-
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(Chat);

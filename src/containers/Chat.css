@@ -28,6 +28,9 @@
   border-radius: 10px 10px 13px 10px;
   outline: none;
   padding: 9px 12px;
+}
+
+.Chat.from-me:not(.big-emoji) {
   border: 2px solid var(--primary-background);
 }
 
@@ -97,10 +100,6 @@
   bottom: -3px;
   letter-spacing: 8px;
   margin-right: 0;
-}
-
-.editable-wrapper {
-  outline: 1px solid red !important;
 }
 
 .editable-wrapper.Chat.from-me {
