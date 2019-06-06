@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Chat.css";
 import MoreButton from "./MoreButton";
+import Icon from "../components/Icon";
 import { connect } from "react-redux";
 import { toggleMore, toggleEditMode, saveEdits } from "../actions";
 
@@ -29,6 +30,7 @@ class Chat extends Component {
   };
 
   handleBlur(message) {
+    console.log("BLLLLUUUUUUURRRRRR chat");
     const { activeUserId, saveEdits } = this.props;
     const editedContent = this.editChatRef.current.textContent;
     saveEdits(activeUserId, message, editedContent);
@@ -39,8 +41,12 @@ class Chat extends Component {
     toggleMore(activeUserId, message);
   }
 
-  handleEditMode(message) {
-    const { activeUserId, toggleEditMode } = this.props;
+  handleEditMode() {
+    // console.log("EDIT");
+    // e.preventDefault();
+    // const { message } = this.props;
+    const { activeUserId, toggleEditMode, message } = this.props;
+    console.log("message", message);
     toggleEditMode(activeUserId, message);
   }
 
@@ -58,6 +64,7 @@ class Chat extends Component {
     const {
       toggleMoreBtn,
       handleEditMode,
+      handleBlur,
       props: {
         message,
         activeUser,
@@ -77,19 +84,30 @@ class Chat extends Component {
       <div className={"Chat-container" + isUserMsg}>
         <img src={userPhoto} alt={altText} className={"Chat-img" + isUserMsg} />
         {editMode ? (
-          // <input type="text" defaultValue={text} />
           <div
-            className="Chat from-me edit"
-            ref={this.editChatRef}
-            contentEditable="true"
-            suppressContentEditableWarning={true}
+            className="editable-wrapper Chat from-me"
             onBlur={this.handleBlur.bind(this, message)}
           >
-            {text}
-            {/*<div className="edit-buttons">
-              <button className="cancel-button">Cancel</button>
-              <button className="save-button">Save</button>
-        </div>*/}
+            <div
+              className="Chat-editable"
+              ref={this.editChatRef}
+              contentEditable="true"
+              suppressContentEditableWarning={true}
+            >
+              {text}
+            </div>
+            <div className="Chat-buttons">
+              <button
+                className="Chat-button"
+                type="button"
+                onMouseDown={this.handleEditMode}
+              >
+                <Icon icon="cancel" />
+              </button>
+              <button className="Chat-button">
+                <Icon icon="save" />
+              </button>
+            </div>
           </div>
         ) : (
           <span className={"Chat" + isUserMsg + this.checkEmoji(text)}>

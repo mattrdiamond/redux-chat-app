@@ -19,8 +19,8 @@ const MoreButton = ({
     handleDeleteMsg(message);
   };
 
-  const handleEdit = message => {
-    handleEditMode(message);
+  const handleEdit = () => {
+    handleEditMode();
   };
 
   return (
@@ -53,7 +53,8 @@ const MoreButton = ({
               type="button"
               className="more-menu-btn"
               role="menuitem"
-              onMouseDown={handleEdit.bind(this, message)}
+              // onMouseDown={handleEdit.bind(this, message)}
+              onMouseDown={handleEdit}
             >
               1. Edit
             </button>
