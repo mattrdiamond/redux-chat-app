@@ -7,6 +7,7 @@ body,
 
 :root {
   --primary: #6366a5;
+  --primary-medium: #7376b5;
   --primary-light: #a3a3c5; /*active shadow*/
   --primary-lighter: #bbbbe0;
   --primary-background: #d8d8ea; /*puple bubble*/

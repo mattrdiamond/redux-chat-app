@@ -1,18 +1,51 @@
-/* .container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  text-align: center;
-} */
+/* More Button */
 
-.more-menu {
-  width: 100px;
+.show-more-menu {
+  position: relative;
+  align-self: center;
 }
 
-/* More Button / Dropdown Menu */
+.more {
+  align-self: center;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.more.show-more-menu {
+  opacity: 1;
+}
+
+.Chat-container.from-me:hover .more {
+  opacity: 1;
+}
+
+.more-dot {
+  background-color: rgba(var(--black), 0.5);
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  margin-right: 3px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.more-dot:last-of-type {
+  margin-right: 0;
+}
+
+.more-btn:hover .more-dot,
+.show-more-menu .more-dot {
+  background-color: rgba(var(--black), 0.5);
+}
+
+.show-more-menu .more-menu {
+  opacity: 1;
+  -webkit-transform: translate(0, 50px) scale(1);
+  transform: translate(0, 50px) scale(1);
+  pointer-events: auto;
+}
 
 .more-btn,
 .more-menu-btn {
@@ -29,33 +62,36 @@
   cursor: pointer;
 }
 
-.more-dot {
-  background-color: #aab8c2;
-  margin: 0 auto;
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  margin-right: 1px;
+.more-btn {
+  display: flex;
+  justify-content: center;
+  padding: 11px 5px;
+  background: rgba(0, 0, 0, 0.07);
   border-radius: 50%;
-  transition: background-color 0.3s;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
+.more-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* More Menu */
+
 .more-menu {
-  position: relative;
-  top: 100%;
+  position: absolute;
   z-index: 900;
-  float: left;
   padding: 10px 0;
-  margin-top: 9px;
   background-color: #fff;
-  border: 1px solid #ccd8e0;
+  border: 1px solid rgba(var(--gray), 0.25);
   border-radius: 4px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
   opacity: 0;
-  -webkit-transform: translate(0, 15px) scale(0.95);
-  transform: translate(0, 15px) scale(0.95);
+  -webkit-transform: translate(0, 65px) scale(0.95);
+  transform: translate(0, 65px) scale(0.95);
   transition: transform 0.1s ease-out, opacity 0.1s ease-out;
   pointer-events: none;
+  left: -10px;
 }
 
 .more-menu-caret {
@@ -78,7 +114,7 @@
 }
 
 .more-menu-caret-outer {
-  border-bottom: 10px solid #c1d0da;
+  border-bottom: 10px solid rgba(var(--gray), 0.25);
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   height: auto;
@@ -107,8 +143,7 @@
 
 .more-menu-btn {
   min-width: 100%;
-  color: #66757f;
-  cursor: pointer;
+  color: rgba(var(--black), 0.8);
   display: block;
   font-size: 13px;
   line-height: 18px;
@@ -118,21 +153,9 @@
 }
 
 .more-menu-item:hover {
-  background-color: #489fe5;
+  background-color: var(--primary-medium);
 }
 
 .more-menu-item:hover .more-menu-btn {
   color: #fff;
-}
-
-.more-btn:hover .more-dot,
-.show-more-menu .more-dot {
-  background-color: #516471;
-}
-
-.show-more-menu .more-menu {
-  opacity: 1;
-  -webkit-transform: translate(0, 0) scale(1);
-  transform: translate(0, 0) scale(1);
-  pointer-events: auto;
 }
