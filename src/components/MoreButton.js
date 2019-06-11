@@ -1,8 +1,7 @@
 import React from "react";
 import "./MoreButton.css";
-import Icon from "../components/Icon";
+import Icon from "./Icon";
 
-// make this a component not a container
 const MoreButton = ({
   toggleMoreBtn,
   showMore,

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Chat.css";
-import MoreButton from "./MoreButton";
+import MoreButton from "../components/MoreButton";
 import Icon from "../components/Icon";
 import { connect } from "react-redux";
 import { toggleMore, toggleEditMode, saveEdits } from "../actions";
