@@ -1,8 +1,6 @@
 import React from "react";
 import "./MoreButton.css";
-import { connect } from "react-redux";
 import Icon from "../components/Icon";
-import { toggleMore } from "../actions";
 
 // make this a component not a container
 const MoreButton = ({
@@ -37,7 +35,6 @@ const MoreButton = ({
   };
 
   return (
-    // <div className="container">
     <div
       className={
         "more" + (showMore ? " show-more-menu" : "") + checkIfLastMsg()
@@ -55,9 +52,6 @@ const MoreButton = ({
       </button>
       <div className="more-menu">
         <div className="triangle-with-shadow">
-          {/*<div className="more-menu-caret triangle-with-shadow">
-          <div className="more-menu-caret-outer" />
-          <div className="more-menu-caret-inner" />*/}
         </div>
         <ul
           className="more-menu-items"
@@ -71,7 +65,6 @@ const MoreButton = ({
               type="button"
               className="more-menu-btn"
               role="menuitem"
-              // onMouseDown={handleEdit.bind(this, message)}
               onMouseDown={handleEdit}
             >
               <Icon icon="edit" />
@@ -92,7 +85,6 @@ const MoreButton = ({
         </ul>
       </div>
     </div>
-    // </div>
   );
 };
 

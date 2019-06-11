@@ -98,12 +98,12 @@ class MessageInput extends Component {
       handleEmojiClick,
       handleCursorChange,
       handleBlur,
-      props: { typingValue, inputValue, cursorPosition }
+      props: { typingValue, inputValue, cursorPosition, sendButtonActive }
     } = this;
 
     return (
       <form
-        className={"Message" + (this.props.sendButtonActive ? " active" : "")}
+        className={"Message" + (sendButtonActive ? " active" : "")}
         autoComplete="off"
         onSubmit={handleSubmit}
         onBlur={handleBlur}
