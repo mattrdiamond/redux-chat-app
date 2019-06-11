@@ -1,6 +1,7 @@
 import React from "react";
 import "./MoreButton.css";
 import { connect } from "react-redux";
+import Icon from "../components/Icon";
 import { toggleMore } from "../actions";
 
 // make this a component not a container
@@ -63,7 +64,7 @@ const MoreButton = ({
           tabIndex="-1"
           role="menu"
           aria-labelledby="more-btn"
-          aria-hidden="true"
+          aria-hidden={showMore ? "false" : "true"}
         >
           <li className="more-menu-item" role="presentation">
             <button
@@ -73,7 +74,8 @@ const MoreButton = ({
               // onMouseDown={handleEdit.bind(this, message)}
               onMouseDown={handleEdit}
             >
-              1. Edit
+              <Icon icon="edit" />
+              Edit
             </button>
           </li>
           <li className="more-menu-item" role="presentation">
@@ -83,7 +85,8 @@ const MoreButton = ({
               role="menuitem"
               onMouseDown={handleDelete.bind(this, message)}
             >
-              2. Delete
+            <Icon icon="delete"/>
+              Delete
             </button>
           </li>
         </ul>
