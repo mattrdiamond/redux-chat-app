@@ -11,6 +11,7 @@
   align-items: center;
   opacity: 0;
   transition: opacity 0.3s ease;
+  position: relative;
 }
 
 .more.show-more-menu {
@@ -42,8 +43,8 @@
 
 .show-more-menu .more-menu {
   opacity: 1;
-  -webkit-transform: translate(0, 50px) scale(1);
-  transform: translate(0, 50px) scale(1);
+  -webkit-transform: translate(0, 52px) scale(1);
+  transform: translate(0, 52px) scale(1);
   pointer-events: auto;
 }
 
@@ -83,7 +84,7 @@
   z-index: 900;
   padding: 10px 0;
   background-color: #fff;
-  border: 1px solid rgba(var(--gray), 0.25);
+  border: 1px solid var(--gray-light);
   border-radius: 4px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
   opacity: 0;
@@ -91,7 +92,7 @@
   transform: translate(0, 65px) scale(0.95);
   transition: transform 0.1s ease-out, opacity 0.1s ease-out;
   pointer-events: none;
-  left: -10px;
+  right: -20px;
 }
 
 .more-menu-caret {
@@ -114,7 +115,7 @@
 }
 
 .more-menu-caret-outer {
-  border-bottom: 10px solid rgba(var(--gray), 0.25);
+  border-bottom: 10px solid var(--gray-light);
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   height: auto;
@@ -158,4 +159,45 @@
 
 .more-menu-item:hover .more-menu-btn {
   color: #fff;
+}
+
+/* set more menu above more button when it appears at bottom of screen */
+
+.more.last .more-menu {
+  transform: translate(0, -66px) scale(0.95);
+}
+
+.more.last.show-more-menu .more-menu {
+  transform: translate(0, -53px) scale(1);
+}
+
+.triangle-with-shadow {
+  width: 30px;
+  height: 18px;
+  top: -18px;
+  right: 17px;
+  position: absolute;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+.triangle-with-shadow:after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: #fff;
+  border: 1px solid var(--gray-light);
+  transform: rotate(45deg);
+  top: 10px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.more.last .triangle-with-shadow {
+  top: auto;
+  bottom: -18px;
+}
+
+.more.last .triangle-with-shadow:after {
+  top: -9px;
 }

@@ -21,6 +21,7 @@
   border-radius: 10px 10px 10px 13px;
   position: relative;
   /* z-index: 0; */
+  cursor: default;
 }
 
 .Chat.from-me {
@@ -105,6 +106,7 @@
 
 .editable-wrapper.Chat.from-me {
   background: #fff;
+  cursor: text;
 }
 
 .Chat-editable {

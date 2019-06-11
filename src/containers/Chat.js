@@ -62,7 +62,14 @@ class Chat extends Component {
       handleEditMode,
       handleSaveEdits,
       checkEmoji,
-      props: { message, activeUser, user, handleDeleteMsg }
+      props: {
+        message,
+        messages,
+        activeUser,
+        user,
+        handleDeleteMsg,
+        activeUserId
+      }
     } = this;
     const { text, is_user_msg, editMode } = message;
     const isUserMsg = is_user_msg ? " from-me" : " from-user";
@@ -101,7 +108,9 @@ class Chat extends Component {
           <MoreButton
             toggleMoreBtn={toggleMoreBtn}
             showMore={message.showMore}
+            messages={messages}
             message={message}
+            activeUserId={activeUserId}
             handleDeleteMsg={handleDeleteMsg}
             handleEditMode={handleEditMode}
           />

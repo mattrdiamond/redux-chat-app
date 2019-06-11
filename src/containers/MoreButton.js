@@ -8,8 +8,10 @@ const MoreButton = ({
   toggleMoreBtn,
   showMore,
   message,
+  messages,
   handleDeleteMsg,
-  handleEditMode
+  handleEditMode,
+  activeUserId
 }) => {
   const handleToggle = e => {
     toggleMoreBtn(e);
@@ -17,15 +19,29 @@ const MoreButton = ({
 
   const handleDelete = message => {
     handleDeleteMsg(message);
+    console.log("delete message", message);
   };
 
   const handleEdit = () => {
     handleEditMode();
   };
 
+  const checkIfLastMsg = () => {
+    const userMessages = messages[activeUserId];
+    const lastMessage = Object.keys(userMessages).length;
+    if (message.number + 1 === lastMessage) {
+      return " last";
+    }
+    return "";
+  };
+
   return (
     // <div className="container">
-    <div className={"more" + (showMore ? " show-more-menu" : "")}>
+    <div
+      className={
+        "more" + (showMore ? " show-more-menu" : "") + checkIfLastMsg()
+      }
+    >
       <button
         id="more-btn"
         className="more-btn"
@@ -37,9 +53,10 @@ const MoreButton = ({
         <span className="more-dot" />
       </button>
       <div className="more-menu">
-        <div className="more-menu-caret">
+        <div className="triangle-with-shadow">
+          {/*<div className="more-menu-caret triangle-with-shadow">
           <div className="more-menu-caret-outer" />
-          <div className="more-menu-caret-inner" />
+          <div className="more-menu-caret-inner" />*/}
         </div>
         <ul
           className="more-menu-items"

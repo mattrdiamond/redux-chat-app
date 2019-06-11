@@ -20,6 +20,7 @@ body,
   --ui-01: #f3f2f1; /*chat background*/
   --black: 38, 37, 36; /* chat text */
   --gray: 86, 88, 103; /* message input */
+  --gray-light: #c8c9cf; /*more menu border */
   --font-regular: "Avenir-Next", sans-serif;
 }
 
