@@ -6,17 +6,17 @@ body,
 }
 
 :root {
-  --primary: #6366a5;
-  --primary-medium: #7376b5;
-  --primary-light: #a3a3c5; /*active shadow*/
-  --primary-lighter: #bbbbe0;
-  --primary-background: #d8d8ea; /*puple bubble*/
-  --primary-dark: #474974; /*user name*/
-  --ui-dark-01: #34354a; /*sidebar*/
-  --ui-dark-02: #3a3b50; /*hover background*/
-  --ui-dark-03: #3f405e; /*active highlight*/
-  --ui-dark-04: #a8a9bd; /*text*/
-  --ui-dark-05: #dddde8; /*highlight text*/
+  --primary-dark: #065287; /*user name*/
+  --primary: #1b6ca9;
+  --primary-medium: #2a83be;
+  --primary-light: #9cbbdc; /*avatar border*/
+  /* --primary-lighter: #a1c1e6; */
+  --primary-background: #cedcef; /*blue bubble*/
+  --ui-dark-01: #2c3748; /*sidebar*/
+  --ui-dark-02: #323d4b; /*hover background*/
+  --ui-dark-03: #2e465e; /*active highlight*/
+  --ui-dark-04: #a5abbf; /*text*/
+  --ui-dark-05: #e0e0e8; /*highlight text*/
   --ui-01: #f3f2f1; /*chat background*/
   --black: 38, 37, 36; /* chat text */
   --gray: 86, 88, 103; /* message input */

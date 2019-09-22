@@ -42,7 +42,7 @@
 
 .Empty__img {
   border-radius: 50%;
-  border: 5px solid var(--primary-lighter);
+  border: 5px solid var(--primary-light);
   animation: fadeInUp 1s ease;
   width: 128px;
   height: 128px;
