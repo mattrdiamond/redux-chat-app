@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import "./Chats.css";
 import Chat from "../containers/Chat";
-import MoreButton from "./MoreButton";
-import { state } from "../static-data";
+// import { state } from "../static-data";
 
 class Chats extends Component {
   constructor(props) {

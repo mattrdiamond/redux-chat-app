@@ -5,7 +5,6 @@ import MessageInput from "./MessageInput";
 import "./ChatWindow.css";
 import { connect } from "react-redux";
 import { deleteMessage } from "../actions";
-import _ from "lodash";
 
 const ChatWindow = ({
   activeUserId,
