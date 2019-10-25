@@ -14,7 +14,7 @@
   border-radius: 50%;
   margin-right: 0.75rem;
   flex-shrink: 0;
-  border: 3px solid var(--primary-light);
+  border: 3px solid #fff;
 }
 
 .Header__name {

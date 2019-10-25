@@ -12,8 +12,11 @@
 .logo {
   width: 140px;
 }
+
 .icon-chatbox {
   fill: #fff;
+  margin-left: 10px;
+  transition: margin 0.3s ease;
 }
 
 .user-pic {
@@ -31,4 +34,10 @@
 .user-name {
   color: #fff;
   opacity: 0.7;
+}
+
+@media (max-width: 749px) {
+  .icon-chatbox {
+    margin-left: 0;
+  }
 }
