@@ -10,6 +10,7 @@ Chatbox is a chat application built with React and Redux.
 - Add emojis to your message using the emoji picker!
 - Contacts can be easily filtered using the search bar.
 - Hover over a message in the chat window to display a more button for additional options. Choosing "edit" will allow you to make changes to your message. Choosing "delete" will remove the message from the chat window.
+
 ![Screenshot of edit menu](img/edit.gif)
 
 ## Running Instructions
