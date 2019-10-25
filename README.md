@@ -1,6 +1,6 @@
 # Project Overview
 
-Chatbox is a chat application built with React and Redux.
+ChatBox is a chat application built with React and Redux.
 
 👉 Check out the [live version](https://mattrdiamond.github.io/chatbox/), or follow the running instructions below to run locally.
 
