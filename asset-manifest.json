@@ -1,0 +1,16 @@
+{
+  "main.css": "/chatbox/static/css/main.cdadaa48.chunk.css",
+  "main.js": "/chatbox/static/js/main.e30fa8d7.chunk.js",
+  "main.js.map": "/chatbox/static/js/main.e30fa8d7.chunk.js.map",
+  "runtime~main.js": "/chatbox/static/js/runtime~main.7c1536e7.js",
+  "runtime~main.js.map": "/chatbox/static/js/runtime~main.7c1536e7.js.map",
+  "static/js/2.8dfb0d28.chunk.js": "/chatbox/static/js/2.8dfb0d28.chunk.js",
+  "static/js/2.8dfb0d28.chunk.js.map": "/chatbox/static/js/2.8dfb0d28.chunk.js.map",
+  "index.html": "/chatbox/index.html",
+  "precache-manifest.c11bcbc67e48c19b34a195445de8feb1.js": "/chatbox/precache-manifest.c11bcbc67e48c19b34a195445de8feb1.js",
+  "service-worker.js": "/chatbox/service-worker.js",
+  "static/css/main.cdadaa48.chunk.css.map": "/chatbox/static/css/main.cdadaa48.chunk.css.map",
+  "static/media/fonts.css": "/chatbox/static/media/avenir-next-regular.a17c827d.woff",
+  "static/media/icons.svg": "/chatbox/static/media/icons.f3279efc.svg",
+  "static/media/SidebarInput.css": "/chatbox/static/media/search.772e67c1.svg"
+}
