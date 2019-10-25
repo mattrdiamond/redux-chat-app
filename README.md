@@ -1,6 +1,6 @@
 # Project Overview
 
-Chatbox is a basic chat application built with React and Redux.
+Chatbox is a chat application built with React and Redux.
 
 ![Screenshot of Chatbox](img/screenshot.jpg)
 
