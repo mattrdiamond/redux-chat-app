@@ -33,7 +33,7 @@
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 550px) {
   .Main {
     width: calc(100% - 60px);
     left: 60px;

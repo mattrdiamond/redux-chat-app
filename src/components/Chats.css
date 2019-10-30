@@ -1,7 +1,13 @@
 .Chats {
   flex: 1 1 0;
   width: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
   padding: 0 1rem;
   box-sizing: border-box;
+}
+
+@media (max-width: 749px) {
+  .Chats {
+    padding: 0 0.25rem;
+  }
 }

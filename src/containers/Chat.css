@@ -1,5 +1,5 @@
 .Chat-container {
-  max-width: 70%;
+  max-width: 60%;
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
@@ -27,7 +27,7 @@
   color: rgba(var(--black), 0.9);
   border-radius: 10px 10px 13px 10px;
   outline: none;
-  padding: 9px 12px;
+  padding: 9px 10px;
 }
 
 .Chat.from-me:not(.big-emoji) {
@@ -158,10 +158,15 @@
 
 @media (max-width: 749px) {
   .Chat-container {
-    max-width: 75%;
+    max-width: 70%;
   }
 
   .Chat-img {
     display: none;
+  }
+
+  .Chat.from-me:not(.big-emoji):after {
+    right: -42px;
+    width: 10px;
   }
 }

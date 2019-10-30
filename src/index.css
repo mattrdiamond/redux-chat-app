@@ -42,3 +42,7 @@ button {
   border: none;
   font-family: var(--font-regular);
 }
+
+input {
+  margin: 0;
+}

@@ -1,9 +1,15 @@
 import React from "react";
-import { setActiveUserId } from "../actions";
+import { setActiveUserId, toggleSidebar } from "../actions";
 import "./User.css";
 import { connect } from "react-redux";
 
-const User = ({ user, handleUserClick, activeUserId, sidebarOpen }) => {
+const User = ({
+  user,
+  handleUserClick,
+  activeUserId,
+  sidebarOpen,
+  toggleSidebar
+}) => {
   const { name, profile_pic, status, user_id } = user;
   const isSidebarOpen = sidebarOpen ? " visible" : " hidden";
 
@@ -13,12 +19,20 @@ const User = ({ user, handleUserClick, activeUserId, sidebarOpen }) => {
     }
   };
 
+  const handleClick = user_id => {
+    if (window.innerWidth < 750 && sidebarOpen) {
+      toggleSidebar();
+    }
+    handleUserClick(user_id);
+  };
+
   return (
     <div
       className={
         "User" + (user_id === activeUserId ? " active" : "") + isSidebarOpen
       }
-      onClick={handleUserClick.bind(null, user_id)}
+      // onClick={handleUserClick.bind(null, user_id)}
+      onClick={handleClick.bind(null, user_id)}
       onKeyPress={handleKeyPress}
       tabIndex="0"
     >
@@ -43,6 +57,9 @@ const mapDispatchToProps = dispatch => {
   return {
     handleUserClick: user_id => {
       dispatch(setActiveUserId(user_id));
+    },
+    toggleSidebar: value => {
+      dispatch(toggleSidebar(value));
     }
   };
 };

@@ -2,6 +2,7 @@
   background: #fff;
   padding-left: 1.5rem;
   display: flex;
+  align-items: center;
   border-top: 1px solid var(--ui-01);
 }
 
@@ -38,7 +39,7 @@
   background: none;
   color: rgba(var(--black), 0.85);
   border: 0;
-  font-size: 15px;
+  font-size: 16px;
   outline: 0;
   flex: 1 1;
   margin-right: 1rem;
@@ -59,4 +60,18 @@
 ::-ms-input-placeholder {
   /* Microsoft Edge */
   color: rgba(var(--gray), 0.35);
+}
+
+@media (max-width: 749px) {
+  .Message {
+    padding-left: 1rem;
+  }
+
+  .Message__input {
+    margin-right: 0;
+  }
+
+  .send-button {
+    padding: 0 1rem 0 0.5rem;
+  }
 }
