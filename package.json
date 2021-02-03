@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://mattrdiamond.github.io/chatbox",
   "dependencies": {
+    "axios": "^0.21.1",
     "emoji-js": "^3.4.1",
     "faker": "^4.1.0",
     "gh-pages": "^2.1.1",

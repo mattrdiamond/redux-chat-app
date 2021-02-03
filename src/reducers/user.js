@@ -1,6 +1,8 @@
 import { generateUser } from "../static-data";
 
-function user(state = generateUser(), action) {
+const randomUser = Math.floor(Math.random() * 10) + 11;
+
+function user(state = generateUser(randomUser), action) {
   return state;
 }
 
